@@ -26,7 +26,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="products.php" class="nav-link">
+                            <a href="all-products.php" class="nav-link">
                                 Product
                                 <i class='bx bx-chevron-down'></i>
                             </a>
@@ -36,7 +36,7 @@
                                 foreach ($PRODUCT_CATEGORIES->all() as $product_categories) {
                                     ?>
                                     <li class="nav-item">
-                                        <a href="product.php?id=<?php echo $product_categories['id'] ?>" class="nav-link">
+                                        <a href="products.php?id=<?php echo $product_categories['id'] ?>" class="nav-link">
                                             <?php echo $product_categories['name']; ?>
                                         </a>
                                     </li>
@@ -70,7 +70,7 @@
                             <div class="cart-btn">
                                 <a href="cart.php">
                                     <i class="flaticon-shopping-cart"></i>
-                                    <span>0</span>
+                                    <span class="cart-badge">0</span>
                                 </a>
                             </div>
                         </div>
