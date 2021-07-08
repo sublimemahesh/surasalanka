@@ -93,7 +93,7 @@ if (!empty($_SESSION["shopping_cart"])) {
         }
     }
 }
-
+// dd($output);
 //if ($items > 3) {
 //    $more_items .= $items - 3 . ' more items.';
 //}

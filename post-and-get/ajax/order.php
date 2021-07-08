@@ -40,7 +40,7 @@ if ($_POST['action'] == 'ADDORDER') {
 
         $ORD = new Order($result);
         $products = OrderProduct::getProductsByOrder($result);
-        $res = $ORD->sendOrderMail($products);
+        // $res = $ORD->sendOrderMail($products);
 // dd($res);
         //    $res = $ORD->sendOrderMailToAdmin($products);
 

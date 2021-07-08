@@ -38,7 +38,7 @@ include_once(dirname(__FILE__) . '/auth.php');
                             </div>
 
                             <div class="body">
-                                <div class="row date-section">
+                                <div class="row date-section hidden">
                                     <div class="col-md-6">
                                         <div class="form-group form-float">
                                             <div class="form-line">
@@ -97,7 +97,7 @@ include_once(dirname(__FILE__) . '/auth.php');
                                                                 <td><?php echo $PRODUCT->name; ?></td> 
                                                                 <td><?php echo $BRAND->name; ?></td> 
                                                                 <td><?php echo $product['qty']; ?></td>
-                                                                <td><?php echo $PRODUCT->unite; ?></td>
+                                                                <td><?php echo $PRODUCT->unit; ?></td>
                                                             </tr>
                                                             <?php
                                                         }

@@ -93,6 +93,8 @@ if (!isset($_SESSION)) {
                 <?php
                 $PRODUCT = new Product(NULL);
                 foreach ($PRODUCT->all() as $product) {
+                    $discount = $product['price'] * $product['discount'] / 100;
+                                        $price = $product['price'] - $discount;
                 ?>
                     <div class="col-lg-3 col-md-6">
                         <div class="single-product">
@@ -132,8 +134,7 @@ if (!isset($_SESSION)) {
                                         <span class="new">Rs. <?php echo number_format($product['price'], 2); ?></span>
                                     <?php
                                     } else {
-                                        $discount = $product['price'] * $product['discount'] / 100;
-                                        $price = $product['price'] - $discount;
+                                        
                                     ?>
                                         <span class="new">Rs. <?php echo number_format($price, 2); ?></span><del>Rs. <?php echo number_format($product['price'], 2); ?></del>
                                     <?php
