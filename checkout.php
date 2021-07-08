@@ -195,8 +195,6 @@ $delivery_charge = DefaultData::getDeliveryCharges();
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                    
                                         <tr>
                                             <td class="product-name">
                                                 <a href="#">Dungeon Burgers</a>
