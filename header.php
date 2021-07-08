@@ -5,7 +5,7 @@
                 <div class="logo">
                     <a href="index.php">
 
-                        <img src="assets/img/logo1.png" alt=""/>
+                        <img src="assets/img/logo1.png" alt="" />
                     </a>
                 </div>
             </div>
@@ -15,7 +15,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="index.php">
-                    <img src="assets/img/logo1.png" alt=""/>
+                    <img src="assets/img/logo1.png" alt="" />
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
@@ -34,14 +34,14 @@
                                 <?php
                                 $PRODUCT_CATEGORIES = new ProductCategories(NULL);
                                 foreach ($PRODUCT_CATEGORIES->all() as $product_categories) {
-                                    ?>
+                                ?>
                                     <li class="nav-item">
                                         <a href="products.php?id=<?php echo $product_categories['id'] ?>" class="nav-link">
                                             <?php echo $product_categories['name']; ?>
                                         </a>
                                     </li>
 
-                                    <?php
+                                <?php
                                 }
                                 ?>
                             </ul>
@@ -63,7 +63,32 @@
 
                             </a>
                         </li>
+                        <?php
+                        if (isset($_SESSION['id'])) {
+                        ?>
+                            <li class="nav-item">
+                                <a href="member/" class="nav-link">
+                                    My Account
+                                </a>
+                            </li>
+                        <?php
+                        } else {
+                        ?>
+                            <li class="nav-item">
+                                <a href="login.php" class="nav-link">
+                                    Sign In
 
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="sign-up.php" class="nav-link">
+                                    Sign Up
+
+                                </a>
+                            </li>
+                        <?php
+                        }
+                        ?>
                     </ul>
                     <div class="others-options d-flex align-items-center">
                         <div class="option-item">
@@ -75,7 +100,7 @@
                             </div>
                         </div>
                         <div class="option-item">
-                            <a href="product-category.php" class="default-btn">
+                            <a href="checkout" class="default-btn">
                                 Order Online
                                 <span></span>
                             </a>

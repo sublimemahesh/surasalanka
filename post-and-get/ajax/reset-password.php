@@ -5,8 +5,8 @@ include_once(dirname(__FILE__) . '/../../class/include.php');
 $CUSTOMER = new Customer(NULL);
 
 $email = $_POST['email'];
-
 if ($CUSTOMER->checkEmail($email)) {
+    
     if ($CUSTOMER->GenarateCode($email)) {
         $res = $CUSTOMER->SelectForgetCustomer($email);
 
@@ -20,14 +20,13 @@ if ($CUSTOMER->checkEmail($email)) {
         $site_link = "https://" . $_SERVER['HTTP_HOST'];
 
         //----------------------- DISPLAY STRINGS ---------------------
-        $comany_name = "Nuts Hut";
-        $website_name = "www.nutshut.lk";
+        $comany_name = "Surasa Lanka";
+        $website_name = "www.surasalanka.com";
         $comConNumber = "+94 77 029 0004";
-        $comEmail = "sales@nutshut.lk";
-        $comOwner = "Team Nuts Hut";
-        $reply_email_name = 'NUTS HUT';
-        $webmail = "sales@nutshut.lk";
-        // $webmail = "info@goldenelectrical.com";
+        $comEmail = "info@surasalanka.com";
+        $comOwner = "Team Surasa Lanka";
+        $reply_email_name = 'SURASA LANKA';
+        $webmail = "noreply@surasalanka.com";
         
         $subject = 'Dashboard - Password Reset';
 
@@ -35,7 +34,7 @@ if ($CUSTOMER->checkEmail($email)) {
 
         $html = "<table style='border:solid 1px #F0F0F0; font-size: 15px; font-family: sans-serif; padding: 0;'>";
 
-        $html .= "<tr><th colspan='3' style='font-size: 18px; padding: 30px 25px 0 25px; color: #fff; text-align: center; background-color: #4184F3;'><h2>Sublime Holdings</h2> </th> </tr>";
+        $html .= "<tr><th colspan='3' style='font-size: 18px; padding: 30px 25px 0 25px; color: #fff; text-align: center; background-color: #4184F3;'><h2>" . $comany_name . "</h2> </th> </tr>";
 
         $html .= "<tr><td colspan='3' style='font-size: 16px; padding: 20px 25px 10px 25px; color: #333; text-align: left; background-color: #fff;'><h3>" . $subject . "</h3> </td> </tr>";
 

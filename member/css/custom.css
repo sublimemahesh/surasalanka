@@ -10,79 +10,130 @@ and open the template in the editor.
 #content {
     margin: 50px 0;
 }
+
 .feature-box-link {
     height: 100px;
-    width: 100px;
+    width : 100px;
 }
+
 .item-feature-box.text-center {
     background: #fff;
 }
+
 .card h3 {
     color: #000;
 }
+
 ul li.top-account.has-child {
     color: #fff;
 }
+
 .header-title {
-    color: #fff;
-    margin-top: 10px;
+    color      : #fff;
+    margin-top : 10px;
     font-weight: 900;
     margin-left: -12px;
 }
+
 .logo-section {
     text-align: center;
 
 }
+
 .item-feature-box i.edit-profile-icon {
-    float: right;
-    right: 20px;
-    position: absolute;
-    top: 3px;
+    float    : right;
+    right    : 20px;
+    position : absolute;
+    top      : 3px;
     font-size: 24px;
-    color: #0066a2;
+    color    : #0066a2;
 }
+
 .card h3 {
-    margin-top: 10px;
+    margin-top   : 10px;
     margin-bottom: 20px;
 }
+
 .p-l-0 {
     padding-left: 0;
 }
+
 .btn-green {
     background-color: #0066a2;
-    border-color: #0066a2;
-    color: #000;
-    font-weight: 600;
-    border-radius: 0;
-} 
+    border-color    : #0066a2;
+    color           : #000;
+    font-weight     : 600;
+    border-radius   : 0;
+}
+
 #customer-form label {
     color: #000;
 }
+
 #view-data-table {
     color: #000;
 }
+
 .order-details {
     color: #000;
 }
+
 .logo4 img {
     height: 34px;
 }
+.top-info img {
+    width       : 25px;
+    margin-right: 5px;
+}
+
 @media (max-width: 767px) {
     .header-nav2 {
-        background: #0066a2 none repeat scroll 0 0;
-        margin-top: 0px; 
-        float: none;
-        padding: 20px 0;
+        background: #333333 none repeat scroll 0 0;
+        margin-top: 0px;
+        float     : none;
+        padding   : 20px 0;
     }
+
     .header-title {
-        font-size: 21px;
+        font-size  : 21px;
         font-weight: 600;
     }
+
     .name-section.col-xs-5 {
         padding-right: 0;
-        padding-left: 0;
+        padding-left : 0;
     }
+
     .name-section.col-xs-7 {
         padding-left: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .top-info {
+        float     : none;
+        text-align: right;
+    }
+
+    .header-nav2 {
+        background: #333333 none repeat scroll 0 0;
+        margin-top: 0px;
+        float     : none;
+        padding   : 8px 0;
+    }
+
+    .logo4 {
+        margin-top: 0px;
+        text-align: left;
+    }
+
+    .top-info img {
+        width       : 25px;
+        margin-right: 5px;
+    }
+
+    .logo4 img {
+        height     : 34px;
+        margin-left: 8px;
     }
 }

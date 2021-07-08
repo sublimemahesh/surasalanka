@@ -1,5 +1,7 @@
 <?php
+
 include './class/include.php';
+
 if (!isset($_SESSION)) {
     session_start();
     $ABOUTUS = new Page(1);
@@ -130,6 +132,8 @@ if (!isset($_SESSION)) {
                 <?php
                 $PRODUCT = new Product(NULL);
                 foreach ($PRODUCT->all() as $product) {
+                    $discount = $product['price'] * $product['discount'] / 100;
+                    $price = $product['price'] - $discount;
                 ?>
                     <div class="burger-shop-item product-box">
                         <div class="image">
@@ -161,7 +165,7 @@ if (!isset($_SESSION)) {
                             <a href="view-product.php?id=<?php echo $product['id']; ?>">
                                 <h3><?php echo $product['name'] ?> </h3>
                                 <p><?php echo substr($product['short_description'], 0, 50) . '..'; ?></p>
-                                <span>Rs.<?php echo $product['price'] ?>.00</span>
+                                <span>Rs.<?php echo number_format($price, 2) ?></span>
                             </a>
                         </div>
                     </div>

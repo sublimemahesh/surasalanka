@@ -8,8 +8,8 @@ if ($_POST['action'] == 'GETCITYSBYDISTRICT') {
 
     $result = $CITY->GetCitiesByDistrict($_POST["district"]);
 
-    echo json_encode($result);
     header('Content-type: application/json');
+    echo json_encode($result);
     exit();
 }
 ?>

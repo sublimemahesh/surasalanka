@@ -258,7 +258,7 @@
                         </li>
                         <li role="seperator" class="divider"></li>
                         <li><a href="edit-profile.php?id=<?php echo $_SESSION['id']; ?>"><i class="material-icons">edit</i>Edit My Profile</a></li>
-                        <li><a href="change-password.php?id=<?php echo $_SESSION['id']; ?>"><i class="material-icons">vpn_key</i>Change Password</a></li> 
+                        <li><a href="change-password.php?id=<?php echo $_SESSION['id']; ?>"><i class="material-icons">vpn_key</i>Change Password</a></li>
                         <li role="seperator" class="divider"></li>
                         <li><a href="post-and-get/log-out.php"><i class="material-icons">input</i>Sign Out</a></li>
                     </ul>
@@ -275,19 +275,13 @@
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
-                </li> 
+                </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">chevron_right</i>
                         <span>Order</span>
                     </a>
                     <ul class="ml-menu">
-                        <li>
-                            <a href="manage-all-orders.php">
-                                <i class="material-icons">list</i>
-                                <span>Manage All Orders</span>
-                            </a>
-                        </li>
                         <li>
                             <a href="manage-orders.php?status=0">
                                 <i class="material-icons">list</i>
@@ -303,15 +297,15 @@
                         <li>
                             <a href="manage-orders.php?status=2">
                                 <i class="material-icons">list</i>
-                                <span>Manage Delivered Orders</span>
+                                <span>Manage Completed Orders</span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="manage-refund-orders.php">
                                 <i class="material-icons">list</i>
                                 <span>Manage Refund Orders</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="manage-canceled-orders.php">
                                 <i class="material-icons">list</i>
@@ -345,8 +339,8 @@
                             </a>
                         </li>
                     </ul>
-                </li> 
-                <li>
+                </li>
+                <li class="hidden">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">chevron_right</i>
                         <span>Reports</span>
@@ -365,7 +359,7 @@
                             </a>
                         </li>
                     </ul>
-                </li> 
+                </li>
                 <li class="qqq hidden">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">chevron_right</i>
@@ -391,7 +385,7 @@
                             </a>
                         </li>
                     </ul>
-                </li> 
+                </li>
 
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
@@ -410,9 +404,9 @@
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
                             </a>
-                        </li> 
+                        </li>
                     </ul>
-                </li> 
+                </li>
 
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
@@ -431,9 +425,9 @@
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
                             </a>
-                        </li> 
+                        </li>
                     </ul>
-                </li> 
+                </li>
 
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
@@ -452,9 +446,9 @@
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
                             </a>
-                        </li> 
+                        </li>
                     </ul>
-                </li> 
+                </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">chevron_right</i>
@@ -472,7 +466,7 @@
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
                             </a>
-                        </li> 
+                        </li>
                     </ul>
                 </li>
 
@@ -493,9 +487,9 @@
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
                             </a>
-                        </li> 
+                        </li>
                     </ul>
-                </li> 
+                </li>
 
                 <li class="hidden">
                     <a href="javascript:void(0);" class="menu-toggle">
@@ -514,9 +508,9 @@
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
                             </a>
-                        </li> 
+                        </li>
                     </ul>
-                </li> 
+                </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">chevron_right</i>
@@ -534,79 +528,43 @@
                                 <i class="material-icons">list</i>
                                 <span>Manage</span>
                             </a>
-                        </li> 
+                        </li>
                     </ul>
-                </li> 
+                </li>
 
-                <li>
+                <li class="hidden">
                     <a href="manage-product-review.php" class="menu-toggle">
                         <i class="material-icons">chevron_right</i>
                         <span>Product Review</span>
-                    </a>                     
-                </li> 
-
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">chevron_right</i>
-                        <span>Product Order</span>
                     </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="new-orders.php">
-                                <i class="material-icons">shopping_cart</i>
-                                <span>New </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="confirm-orders.php">
-                                <i class="material-icons">assignment_turned_in</i>
-                                <span>Confirm </span>
-                            </a>
-                        </li> 
-                        <li>
-                            <a href="deliver-orders.php">
-                                <i class="material-icons">airport_shuttle</i>
-                                <span>Deliver </span>
-                            </a>
-                        </li> 
-                        <li>
-                            <a href="cancel-orders.php">
-                                <i class="material-icons">event_busy</i>
-                                <span>Cancel </span>
-                            </a>
-                        </li> 
-                    </ul>
-                </li> 
-
-
-
+                </li>
             </ul>
             </br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
         </div>
-        
+
 
         <!-- #Menu -->
         <!-- Footer -->

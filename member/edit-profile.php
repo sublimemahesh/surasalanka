@@ -1,6 +1,6 @@
 <?php
 include_once(dirname(__FILE__) . '/../class/include.php');
-include_once(dirname(__FILE__) . '/../auth.php');
+include_once(dirname(__FILE__) . '/auth.php');
 
 if (!isset($_SESSION)) {
     session_start();
@@ -13,7 +13,7 @@ $CITY = new City($CUSTOMER->city);
 <html lang="en-US"> 
     <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-        <title>N One Store</title>
+        <title>Surasa Lanka (Pvt) Ltd.</title>
 
 
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -25,19 +25,19 @@ $CITY = new City($CUSTOMER->city);
         <link rel="icon" href="../images/logo-favicon.png" type="images/logo-favicon.png">
 
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet'>
-        <link rel="stylesheet" type="text/css" href="../css/libs/font-awesome.min.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/libs/font-linearicons.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/libs/bootstrap.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/libs/bootstrap-theme.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/libs/jquery.fancybox.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/libs/jquery-ui.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/libs/owl.carousel.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/libs/owl.transitions.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/libs/owl.theme.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/libs/query.mCustomScrollbar.html"/>
-        <link rel="stylesheet" type="text/css" href="../css/libs/settings.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/theme.css" media="all"/>
-        <link rel="stylesheet" type="text/css" href="../css/responsive.css" media="all"/>
+        <link rel="stylesheet" type="text/css" href="css/libs/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/libs/font-linearicons.css"/>
+        <link rel="stylesheet" type="text/css" href="css/libs/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="css/libs/bootstrap-theme.css"/>
+        <link rel="stylesheet" type="text/css" href="css/libs/jquery.fancybox.css"/>
+        <link rel="stylesheet" type="text/css" href="css/libs/jquery-ui.css"/>
+        <link rel="stylesheet" type="text/css" href="css/libs/owl.carousel.css"/>
+        <link rel="stylesheet" type="text/css" href="css/libs/owl.transitions.css"/>
+        <link rel="stylesheet" type="text/css" href="css/libs/owl.theme.css"/>
+        <link rel="stylesheet" type="text/css" href="css/libs/query.mCustomScrollbar.html"/>
+        <link rel="stylesheet" type="text/css" href="css/libs/settings.css"/>
+        <link rel="stylesheet" type="text/css" href="css/theme.css" media="all"/>
+        <link rel="stylesheet" type="text/css" href="css/responsive.css" media="all"/>
         <link rel="stylesheet" type="text/css" href="../css/hover-effect.css" media="all"/> 
         <link href="../control-panel/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>
         <link href="../css/modle-login.css" rel="stylesheet" type="text/css"/>
@@ -197,13 +197,12 @@ $CITY = new City($CUSTOMER->city);
                                                         <div class="col-lg-10  col-md-10 col-sm-12 col-xs-12 p-l-0">
                                                             <input type="hidden" name="id" id="customer" value="<?php echo $CUSTOMER->id; ?>">
                                                             <input type="submit" name="update" id="btn-update-customer" class="btn btn-green m-t-15 waves-effect" value="Update"/>
-                                                            <a href="profile.php" class="btn btn-green m-t-15 waves-effect">Back</a>
+                                                            <a href="./" class="btn btn-green m-t-15 waves-effect">Back</a>
                                                         </div>
                                                     </div>
 
                                                 </form>
                                                 <div class="row clearfix">  </div>
-                                                <hr/>
                                                 </form>
                                             </div>
                                         </div>
@@ -218,17 +217,17 @@ $CITY = new City($CUSTOMER->city);
             </div>
             <?php include './footer.php'; ?>
         </div>
-        <script type="text/javascript" src="../js/libs/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript" src="../js/libs/bootstrap.min.js"></script>
-        <script type="text/javascript" src="../js/libs/jquery.fancybox.js"></script>
-        <script type="text/javascript" src="../js/libs/jquery-ui.js"></script>
-        <script type="text/javascript" src="../js/libs/owl.carousel.js"></script>
-        <script type="text/javascript" src="../js/libs/TimeCircles.js"></script>
-        <script type="text/javascript" src="../js/libs/jquery.countdown.js"></script>
-        <script type="text/javascript" src="../js/libs/jquery.bxslider.min.js"></script>
-        <script type="text/javascript" src="../js/libs/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script type="text/javascript" src="../js/libs/jquery.themepunch.revolution.js"></script>
-        <script type="text/javascript" src="../js/libs/jquery.themepunch.plugins.min.js"></script>
+        <script type="text/javascript" src="js/libs/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/libs/jquery.fancybox.js"></script>
+        <script type="text/javascript" src="js/libs/jquery-ui.js"></script>
+        <script type="text/javascript" src="js/libs/owl.carousel.js"></script>
+        <script type="text/javascript" src="js/libs/TimeCircles.js"></script>
+        <script type="text/javascript" src="js/libs/jquery.countdown.js"></script>
+        <script type="text/javascript" src="js/libs/jquery.bxslider.min.js"></script>
+        <script type="text/javascript" src="js/libs/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script type="text/javascript" src="js/libs/jquery.themepunch.revolution.js"></script>
+        <script type="text/javascript" src="js/libs/jquery.themepunch.plugins.min.js"></script>
         <script type="text/javascript" src="../js/theme.js"></script>
         <script src="../control-panel/plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <script src="js/city.js" type="text/javascript"></script>

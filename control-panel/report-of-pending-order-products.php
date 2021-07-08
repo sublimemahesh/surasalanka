@@ -78,7 +78,7 @@ include_once(dirname(__FILE__) . '/auth.php');
                                                                 <td><?php echo $PRODUCT->name; ?></td> 
                                                                 <td><?php echo $BRAND->name; ?></td> 
                                                                 <td><?php echo $product['qty']; ?></td>
-                                                                <td><?php echo $PRODUCT->unite; ?></td>
+                                                                <td><?php echo $PRODUCT->unit; ?></td>
                                                             </tr>
                                                             <?php
                                                         }

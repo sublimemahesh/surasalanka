@@ -101,8 +101,8 @@ if (!isset($_SESSION)) {
                         </div>
                         <div class="col-lg-12">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="checkme">
-                                <label class="form-check-label" for="checkme">Keep me Log In</label>
+                                <!-- <input type="checkbox" class="form-check-input" id="checkme">
+                                <label class="form-check-label" for="checkme">Keep me Log In</label> -->
                             </div>
                         </div>
                         <div class="col-lg-12">

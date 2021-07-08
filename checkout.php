@@ -54,6 +54,7 @@ $delivery_charge = DefaultData::getDeliveryCharges();
     <link rel="stylesheet" href="assets/css/responsive.css">
     <title>Surasa Lanka (Pvt) Ltd. | Checkout</title>
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link href="control-panel/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -96,7 +97,7 @@ $delivery_charge = DefaultData::getDeliveryCharges();
 
     <section class="checkout-area ptb-100">
         <div class="container">
-            
+
             <form method="post" id="payments">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
@@ -177,7 +178,7 @@ $delivery_charge = DefaultData::getDeliveryCharges();
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
-                                        <textarea  id="txtOrderNote" name="txtOrderNote" placeholder="Order Notes" cols="30" rows="5" class="form-control"></textarea>
+                                        <textarea id="txtOrderNote" name="txtOrderNote" placeholder="Order Notes" cols="30" rows="5" class="form-control"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -195,82 +196,64 @@ $delivery_charge = DefaultData::getDeliveryCharges();
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="product-name">
-                                                <a href="#">Dungeon Burgers</a>
-                                            </td>
-                                            <td class="product-total">
-                                                <span class="subtotal-amount">$455.00</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-name">
-                                                <a href="#">Pit Master Burgers</a>
-                                            </td>
-                                            <td class="product-total">
-                                                <span class="subtotal-amount">$541.50</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-name">
-                                                <a href="#">Backyard Burgers</a>
-                                            </td>
-                                            <td class="product-total">
-                                                <span class="subtotal-amount">$140.50</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-name">
-                                                <a href="#">Burger Ferguson</a>
-                                            </td>
-                                            <td class="product-total">
-                                                <span class="subtotal-amount">$547.00</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="order-subtotal">
-                                                <span>Rockin' Burgers</span>
-                                            </td>
-                                            <td class="order-subtotal-price">
-                                                <span class="order-subtotal-amount">$1683.50</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="order-shipping">
-                                                <span>CrazyBurger</span>
-                                            </td>
-                                            <td class="shipping-price">
-                                                <span>$30.00</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="total-price">
-                                                <span>Order Total</span>
-                                            </td>
-                                            <td class="product-subtotal">
-                                                <span class="subtotal-amount">$1713.50</span>
-                                            </td>
-                                        </tr>
+                                        <?php
+                                        $tot = 0;
+                                        $items = '';
+                                        if (isset($_SESSION["shopping_cart"])) {
+                                            foreach ($_SESSION["shopping_cart"] as $product) {
+
+                                                $PRODUCT = new Product($product['product_id']);
+
+
+                                                $name =  $product["product_name"];
+
+                                                $price = $product['product_quantity'] * $product['product_price'];
+                                                $tot += $price;
+                                        ?>
+                                                <tr>
+                                                    <td class="product-name"> <?php echo $name; ?>&nbsp;<span class="product-quantity">× <?php echo $product['product_quantity']; ?></span></td>
+                                                    <td class="product-total text-right"><span class="amount">Rs. <?php echo number_format($price, 2); ?></span> </td>
+                                                </tr>
+                                            <?php
+                                            }
+                                        } else {
+                                            ?>
+                                            <tr class="cart_item">
+                                                <td colspan="2">Your cart is empty.</td>
+                                            </tr>
+                                        <?php
+                                        }
+                                        ?>
                                     </tbody>
+                                    <tfoot>
+                                        <?php
+                                        $grand_total = $tot + $delivery_charge;
+                                        ?>
+                                        <tr class="order-total">
+                                            <th class="product-name">Delivery Charges</th>
+                                            <th class="product-total text-right"><strong><span class="amount">Rs. <?= number_format($delivery_charge, 2); ?></span></strong> </th>
+                                        </tr>
+                                        <tr class="order-total">
+                                            <th class="product-name">Total</th>
+                                            <th class="product-total text-right"><strong><span class="amount">Rs. <?php echo number_format($grand_total, 2); ?></span></strong> </th>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
+
                             <div class="payment-box">
-                                <div class="payment-method">
-                                    <p>
-                                        <input type="radio" id="direct-bank-transfer" name="radio-group" checked>
-                                        <label for="direct-bank-transfer">Direct Bank Transfer</label>
-                                        Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="paypal" name="radio-group">
-                                        <label for="paypal">PayPal</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="cash-on-delivery" name="radio-group">
-                                        <label for="cash-on-delivery">Cash on Delivery</label>
-                                    </p>
+                                <div class="row">
+                                    <div class="col-xs-12 agree-check-box">
+                                        <label class="checkbox-container">Click here to indicate that you have read and agree to the booking
+                                            <input type="checkbox" name="agree" id="agree"><span class="checkmark">
+                                            </span>
+                                        </label>
+                                    </div>
                                 </div>
-                                <a href="#" class="default-btn order-btn">
+                                <input type="hidden" name="delivery_charges" id="delivery_charges" value="<?= $delivery_charge; ?>" />
+                                <input type="hidden" name="total_amount" id="total_amount" value="<?= $grand_total; ?>" />
+                                <input type="hidden" name="member" id="member" value="<?= $_SESSION['id']; ?>" />
+                                <a href="#" class="default-btn order-btn" id="place_order" <?php echo $disabled; ?> prod-total="<?php echo $tot; ?>">
                                     Place Order
                                     <span></span>
                                 </a>
@@ -322,6 +305,9 @@ $delivery_charge = DefaultData::getDeliveryCharges();
     <script src="assets/js/wow.min.js"></script>
 
     <script src="assets/js/main.js"></script>
+    <script src="control-panel/plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
+    <script src="js/add-to-cart.js" type="text/javascript"></script>
+    <script src="js/order.js" type="text/javascript"></script>
 </body>
 
 

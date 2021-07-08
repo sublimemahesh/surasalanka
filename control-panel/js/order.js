@@ -4,11 +4,11 @@ $(document).ready(function () {
         var id = $(this).attr("data-id");
         swal({
             title: "Are you sure?",
-            text: "Are you want to mark this order as delivered???",
+            text: "Are you want to confirm this order???",
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes, mark it!",
+            confirmButtonText: "Yes, confirm it!",
             closeOnConfirm: false
         }, function () {
 
@@ -21,8 +21,8 @@ $(document).ready(function () {
                     if (jsonStr.status) {
 
                         swal({
-                            title: "Marked!",
-                            text: "Your order has been marked as delivered.",
+                            title: "Confirmed!",
+                            text: "Your order has been confirmed.",
                             type: 'success',
                             timer: 2000,
                             showConfirmButton: false
@@ -38,11 +38,11 @@ $(document).ready(function () {
         var id = $(this).attr("data-id");
         swal({
             title: "Are you sure?",
-            text: "Are you want to mark this order as completed???",
+            text: "Are you want to complete this order???",
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes, mark it!",
+            confirmButtonText: "Yes, complete it!",
             closeOnConfirm: false
         }, function () {
 
@@ -55,8 +55,8 @@ $(document).ready(function () {
                     if (jsonStr.status) {
 
                         swal({
-                            title: "Marked!",
-                            text: "Order has been marked as completed.",
+                            title: "Completed!",
+                            text: "Order has been completed.",
                             type: 'success',
                             timer: 2000,
                             showConfirmButton: false
