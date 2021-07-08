@@ -14,9 +14,9 @@
 class DefaultData
 {
 
-    const Host = 'https://webmail.nutshut.lk/';
-    const Username = 'noreply@nutshut.lk';
-    const Password = '*rr}xv34{!#7';
+    const Host = 'sg1-ls7.a2hosting.com';
+    const Username = 'noreply@surasalanka.com';
+    const Password = 'Umu93;x3njmd';
     const Port = 465;
 
     public function getDeliveryCharges()

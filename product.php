@@ -6,8 +6,8 @@ if (!isset($_SESSION)) {
 $PRODUCT = new Product($_GET['id']);
 
 $CAT = new ProductCategories($PRODUCT->category);
-$discount1 = $PRODUCT->price * ($PRODUCT->discount / 100);
-$price1 = $PRODUCT->price - $discount1;
+$discount = $PRODUCT->price * ($PRODUCT->discount / 100);
+$price = $PRODUCT->price - $discount;
 ?>
 <!doctype html>
 <html lang="zxx">
@@ -138,7 +138,7 @@ $price1 = $PRODUCT->price - $discount1;
                                 <div class="default-btn">
                                     <input type="hidden" id="name<?= $PRODUCT->id; ?>" value="<?= $PRODUCT->name; ?>" />
                                     <input type="hidden" id="price<?= $PRODUCT->id; ?>" value="<?= $price; ?>" />
-                                    <div id="<?php echo $PRODUCT->id; ?>" min-qty="<?php echo $PRODUCT->min_qty; ?>" max-qty="<?php echo $PRODUCT->max_qty; ?>" class="add_to_cart"><i class="fa fa-shopping-cart"></i> Add to Cart</div>
+                                    <div id="<?php echo $PRODUCT->id; ?>" min-qty="<?php echo $PRODUCT->min_qty; ?>" max-qty="<?php echo $PRODUCT->max_qty; ?>" class="add_to_cart add_to_cart_btn"><i class="fa fa-shopping-cart"></i> Add to Cart</div>
                                 </div>
                             <?php
                             } else {
@@ -226,7 +226,7 @@ $price1 = $PRODUCT->price - $discount1;
                                     </div>
                                     <div class="product-content">
                                         <h3>
-                                            <a href="view-product.php?id=<?php echo $product1['id']; ?>"><?php echo $product1['name']; ?></a>
+                                            <a href="product.php?id=<?php echo $product1['id']; ?>"><?php echo $product1['name']; ?></a>
                                         </h3>
                                         <div class="price">
                                             <?php

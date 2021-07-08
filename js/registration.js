@@ -143,7 +143,7 @@ $(document).ready(function () {
                         if (result.redirect == 'checkout') {
                             window.location.replace("cart.php");
                         } else {
-                            window.location.replace("member/profile.php");
+                            window.location.replace("member/");
                         }
 
                     }

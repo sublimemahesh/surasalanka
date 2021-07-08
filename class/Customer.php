@@ -380,16 +380,16 @@ class Customer
         $todayis = date("l, F j, Y, g:i a");
         $site_link = "https://" . $_SERVER['HTTP_HOST'];
 
-        $comany_name = "Nuts Hut";
-        $website_name = "www.nutshut.lk";
-        $comConNumber = "+94 77 029 0004";
-        $comEmail = "sales@nutshut.lk";
-        $comOwner = "Team Nuts Hut";
-        $reply_email_name = 'NUTS HUT';
+        $comany_name = "Surasa Lanka (Pvt) Ltd";
+        $website_name = "www.surasalanka.com";
+        $comConNumber = "+94 773 051 737";
+        $comEmail = "info@surasalanka.com";
+        $comOwner = "Team Surasa Lanka";
+        $reply_email_name = 'SURASA LANKA (PVT) LTD';
 
         $visitor_email = $this->email;
         $visitor_name = $this->name;
-        $webmail = "sales@nutshut.lk";
+        $webmail = "noreply@surasalanka.com";
         $visitorSubject = "Your Registration is Successful!. -" . $comany_name;
 
 

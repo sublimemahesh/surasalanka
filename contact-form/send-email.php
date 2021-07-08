@@ -10,7 +10,7 @@ $site_link = "http://" . $_SERVER['HTTP_HOST'];
 
 //----------------------- DISPLAY STRINGS ---------------------
 $comany_name = "Surasa Lanka (Pvt) Ltd.";
-$website_name = "www.surasalanka.lk";
+$website_name = "www.surasalanka.com";
 $comConNumber = "+94 773 051 737";
 $comEmail = "info@surasalanka.com";
 $comOwner = "Surasa Lanka (Pvt) Ltd.";
@@ -32,8 +32,8 @@ $message = $_POST['message'];
 //---------------------- SERVER WEBMAIL LOGIN ------------------------
 
 $host = "sg1-ls7.a2hosting.com";
-$username = "test@synotec.lk";
-$password = '-6gr.o+PA,]4';
+$username = "noreply@surasalanka.com";
+$password = 'Umu93;x3njmd';
 
 //------------------------ MAIL ESSENTIALS --------------------------------
 
@@ -61,21 +61,27 @@ if ($_SESSION['CAPTCHACODE'] != $_POST['captchacode']) {
 include("mail-template.php");
 
 
-$visitorHeaders = array('MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
+$visitorHeaders = array(
+    'MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
     'To' => $visitor_email,
     'Reply-To' => $comEmail,
-    'Subject' => $visitorSubject);
+    'Subject' => $visitorSubject
+);
 
-$companyHeaders = array('MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
+$companyHeaders = array(
+    'MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
     'To' => $webmail,
     'Reply-To' => $visitor_email,
-    'Subject' => $companySubject);
+    'Subject' => $companySubject
+);
 
 
-$smtp = Mail::factory('smtp', array('host' => $host,
-            'auth' => true,
-            'username' => $username,
-            'password' => $password));
+$smtp = Mail::factory('smtp', array(
+    'host' => $host,
+    'auth' => true,
+    'username' => $username,
+    'password' => $password
+));
 
 $visitorMail = $smtp->send($visitor_email, $visitorHeaders, $visitor_message);
 $companyMail = $smtp->send($webmail, $companyHeaders, $company_message);
@@ -86,7 +92,7 @@ if (PEAR::isError($visitorMail && $companyMail)) {
 
     $response['msg'] = $mail->getMessage();
 
-//"Your message has not been sent"
+    //"Your message has not been sent"
 
     echo json_encode($response);
 
@@ -96,7 +102,7 @@ if (PEAR::isError($visitorMail && $companyMail)) {
 
     $response['msg'] = "Your message has been sent successfully";
 
-//"Your message has been sent successfully"
+    //"Your message has been sent successfully"
 
     echo json_encode($response);
 

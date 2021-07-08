@@ -492,11 +492,11 @@ class Order
         $site_link = "http://" . $_SERVER['HTTP_HOST'];
 
         //----------------------- DISPLAY STRINGS ---------------------
-        $comany_name = "Nuts Hut";
-        $website_name = "www.nutshut.lk";
-        $comConNumber = "+94 77 029 0004";
-        $comEmail = "sales@nutshut.lk";
-        $comOwner = "Team Nuts Hut";
+        $comany_name = "Surasa Lanka (Pvt) Ltd";
+        $website_name = "www.surasalanka.com";
+        $comConNumber = "+94 773 051 737";
+        $comEmail = "info@surasalanka.com";
+        $comOwner = "Team Surasa Lanka";
         $customer_msg = 'Hello, and thank you for your interest in ' . $comany_name . '. We have received your enquiry, and we will get back to you as soon as possible.';
 
 
@@ -509,13 +509,13 @@ class Order
         //---------------------- SERVER WEBMAIL LOGIN ------------------------
 
         $host = "sg1-ls7.a2hosting.com";
-        $username = "sales@nutshut.lk";
-        $password = 'Vl3epGxyKz)9';
+        $username = "noreply@surasalanka.com";
+        $password = 'Umu93;x3njmd';
 
         //------------------------ MAIL ESSENTIALS --------------------------------
 
-        $webmail = "sales@nutshut.lk";
-        $visitorSubject = "Thank You " . $visitor_name . " - Nutshut";
+        $webmail = "noreply@surasalanka.com";
+        $visitorSubject = "Thank You " . $visitor_name . " - " . $comany_name;
         $companySubject = "Order Enquiry - #" . $this->id;
 
         $delivery_charge = DefaultData::getDeliveryCharges();
@@ -525,14 +525,14 @@ class Order
         $id = 0;
         foreach ($products as $key => $product) {
 
-            $PRODUCT = new Product($product['product_id']);
+            $PRODUCT = new Product($product['product']);
 
-            if ($PRODUCT->parent  != 0) {
-                $PARANT = new Product($PRODUCT->parent);
-                $name = $PARANT->name . ' - ' . $product["product_name"];
-            } else {
-                $name =  $product["product_name"];
-            }
+            // if ($PRODUCT->parent  != 0) {
+            //     $PARANT = new Product($PRODUCT->parent);
+            //     $name = $PARANT->name . ' - ' . $product["product_name"];
+            // } else {
+                $name =  $PRODUCT->name;
+            // }
 
             $tot += $product['amount'];
             $id++;
@@ -971,37 +971,49 @@ class Order
     </body>
 </html>';
 
-        $visitorHeaders = array(
-            'MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
-            'To' => $visitor_email,
-            'Reply-To' => $comEmail,
-            'Subject' => $visitorSubject
-        );
+        $HELPER = new Helper();
+        $visitorMail = $HELPER->PHPMailer($webmail, $comany_name, $comEmail, $comany_name, $visitor_email, $visitor_name, $visitorSubject, $visitor_message);
+        $companyMail = $HELPER->PHPMailer($webmail, $visitor_name, $visitor_email, $visitor_name, $comEmail, $comany_name, $companySubject, $company_message);
 
-        $companyHeaders = array(
-            'MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
-            'To' => $webmail,
-            'Reply-To' => $visitor_email,
-            'Subject' => $companySubject
-        );
-
-
-        $smtp = Mail::factory('smtp', array(
-            'host' => $host,
-            'auth' => true,
-            'username' => $username,
-            'password' => $password
-        ));
-
-        $visitorMail = $smtp->send($visitor_email, $visitorHeaders, $visitor_message);
-        $companyMail = $smtp->send($webmail, $companyHeaders, $company_message);
-
-        if (PEAR::isError($visitorMail && $companyMail)) {
-            $arr['status'] = "Could not be sent your message";
-        } else {
+        if ($visitorMail && $companyMail) {
             $arr['status'] = "Your message has been sent successfully";
+        } else {
+            $arr['status'] = "Could not be sent your message";
         }
+
         return $arr;
+
+        // $visitorHeaders = array(
+        //     'MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
+        //     'To' => $visitor_email,
+        //     'Reply-To' => $comEmail,
+        //     'Subject' => $visitorSubject
+        // );
+
+        // $companyHeaders = array(
+        //     'MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
+        //     'To' => $webmail,
+        //     'Reply-To' => $visitor_email,
+        //     'Subject' => $companySubject
+        // );
+
+
+        // $smtp = Mail::factory('smtp', array(
+        //     'host' => $host,
+        //     'auth' => true,
+        //     'username' => $username,
+        //     'password' => $password
+        // ));
+
+        // $visitorMail = $smtp->send($visitor_email, $visitorHeaders, $visitor_message);
+        // $companyMail = $smtp->send($webmail, $companyHeaders, $company_message);
+
+        // if (PEAR::isError($visitorMail && $companyMail)) {
+        //     $arr['status'] = "Could not be sent your message";
+        // } else {
+        //     $arr['status'] = "Your message has been sent successfully";
+        // }
+        // return $arr;
     }
 
     function sendOrderMailToAdmin($products)
@@ -1015,16 +1027,16 @@ class Order
         $todayis = date("l, F j, Y, g:i a");
         $site_link = "https://" . $_SERVER['HTTP_HOST'];
 
-        $comany_name = "Nuts Hut";
-        $website_name = "www.nutshut.lk";
-        $comConNumber = "+94 77 029 0004";
-        $comEmail = "sales@nutshut.lk";
-        $comOwner = "Team Nuts Hut";
-        $reply_email_name = 'NUTS HUT';
+        $comany_name = "Surasa Lanka (Pvt) Ltd";
+        $website_name = "www.surasalanka.com";
+        $comConNumber = "+94 773 051 737";
+        $comEmail = "info@surasalanka.com";
+        $comOwner = "Team Surasa Lanka";
+        $reply_email_name = 'SURASA LANKA (PVT) LTD';
 
         $visitor_email = $CUSTOMER->email;
         $visitor_name = $CUSTOMER->name;
-        $webmail = "sales@nutshut.lk";
+        $webmail = "noreply@surasalanka.com";
         $visitorSubject = "Order Enquiry - #" . $this->id;
 
         $tr = '';
@@ -1247,8 +1259,8 @@ class Order
 </html>';
 
         $host = "sg1-ls7.a2hosting.com";
-        $username = "sales@nutshut.lk";
-        $password = 'Vl3epGxyKz)9';
+        $username = "noreply@surasalanka.com";
+        $password = 'Umu93;x3njmd';
         // $HELPER = new Helper();
         // $companyMail = $HELPER->PHPMailer($webmail, $visitor_name, $visitor_email, $visitor_name, $comEmail, $comany_name, $visitorSubject, $html);
 
@@ -1288,21 +1300,21 @@ class Order
         $todayis = date("l, F j, Y, g:i a");
         $site_link = "https://" . $_SERVER['HTTP_HOST'];
 
-        $comany_name = "Nuts Hut";
-        $website_name = "www.nutshut.lk";
-        $comConNumber = "+94 77 029 0004";
-        $comEmail = "sales@nutshut.lk";
-        $comOwner = "Team Nuts Hut";
-        $reply_email_name = 'NUTS HUT';
+        $comany_name = "Surasa Lanka (Pvt) Ltd";
+        $website_name = "www.surasalanka.com";
+        $comConNumber = "+94 773 051 737";
+        $comEmail = "info@surasalanka.com";
+        $comOwner = "Team Surasa Lanka";
+        $reply_email_name = 'SURASA LANKA (PVT) LTD';
         $CUSTOMER = new Customer($this->member);
         $visitor_email = $CUSTOMER->email;
         $visitor_name = $CUSTOMER->name;
-        $webmail = "sales@nutshut.lk";
+        $webmail = "noreply@surasalanka.com";
         $visitorSubject = "Order Confirmation - (#" . $this->id . ")";
 
         $host = "sg1-ls7.a2hosting.com";
-        $username = "sales@nutshut.lk";
-        $password = 'Vl3epGxyKz)9';
+        $username = "noreply@surasalanka.com";
+        $password = 'Umu93;x3njmd';
 
 
         // Compose a simple HTML email message
@@ -1322,36 +1334,37 @@ class Order
         $message .= '</body>';
         $message .= '</html>';
 
-        $visitorHeaders = array(
-            'MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
-            'To' => $visitor_email,
-            'Reply-To' => $comEmail,
-            'Subject' => $visitorSubject
-        );
 
-
-        $smtp = Mail::factory('smtp', array(
-            'host' => $host,
-            'auth' => true,
-            'username' => $username,
-            'password' => $password
-        ));
-
-        $visitorMail = $smtp->send($visitor_email, $visitorHeaders, $message);
-
-        if (PEAR::isError($visitorMail)) {
-            return FALSE;
-        } else {
+        $HELPER = new Helper();
+        $visitorMail = $HELPER->PHPMailer($webmail, $comany_name, $comEmail, $comany_name, $visitor_email, $visitor_name, $visitorSubject, $message);
+        if ($visitorMail) {
             return TRUE;
+        } else {
+            return FALSE;
         }
 
-        // $HELPER = new Helper();
-        // $visitorMail = $HELPER->PHPMailer($webmail, $comany_name, $comEmail, $reply_email_name, $visitor_email, $visitor_name, $visitorSubject, $message);
 
-        // if ($visitorMail) {
-        //     return TRUE;
-        // } else {
+        // $visitorHeaders = array(
+        //     'MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
+        //     'To' => $visitor_email,
+        //     'Reply-To' => $comEmail,
+        //     'Subject' => $visitorSubject
+        // );
+
+
+        // $smtp = Mail::factory('smtp', array(
+        //     'host' => $host,
+        //     'auth' => true,
+        //     'username' => $username,
+        //     'password' => $password
+        // ));
+
+        // $visitorMail = $smtp->send($visitor_email, $visitorHeaders, $message);
+
+        // if (PEAR::isError($visitorMail)) {
         //     return FALSE;
+        // } else {
+        //     return TRUE;
         // }
     }
 }
