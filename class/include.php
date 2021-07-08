@@ -25,6 +25,7 @@ include_once(dirname(__FILE__) . '/Order.php');
 include_once(dirname(__FILE__) . '/OrderProduct.php');
 include_once(dirname(__FILE__) . '/Page.php');
 include_once(dirname(__FILE__) . '/Slider.php');
+include_once(dirname(__FILE__) . '/DefaultData.php');
 
 function dd($data) {
 

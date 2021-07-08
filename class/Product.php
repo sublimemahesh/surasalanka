@@ -19,7 +19,7 @@ class Product {
     public $brand;
     public $name;
     public $discount;
-    public $unite;
+    public $unit;
     public $price;
     public $image_name;
     public $short_description;
@@ -44,7 +44,7 @@ class Product {
             $this->brand = $result['brand'];
             $this->name = $result['name'];
             $this->discount = $result['discount'];
-            $this->unite = $result['unite'];
+            $this->unit = $result['unit'];
             $this->price = $result['price'];
             $this->image_name = $result['image_name'];
             $this->short_description = $result['short_description'];
@@ -60,13 +60,13 @@ class Product {
 
     public function create() {
 
-        $query = "INSERT INTO `product` (`category`,`sub_category`,`brand`,`name`,`discount`,`unite`,`price`,`image_name`,`short_description`,`description`,`in_stock`,`min_qty`,`max_qty`,`queue`) VALUES  ('"
+        $query = "INSERT INTO `product` (`category`,`sub_category`,`brand`,`name`,`discount`,`unit`,`price`,`image_name`,`short_description`,`description`,`in_stock`,`min_qty`,`max_qty`,`queue`) VALUES  ('"
                 . $this->category . "','"
                 . $this->sub_category . "','"
                 . $this->brand . "','"
                 . $this->name . "', '"
                 . $this->discount . "', '"
-                . $this->unite . "', '"
+                . $this->unit . "', '"
                 . $this->price . "', '"
                 . $this->image_name . "', '"
                 . $this->short_description . "', '"
@@ -154,7 +154,7 @@ class Product {
                 . "`brand` ='" . $this->brand . "', "
                 . "`name` ='" . $this->name . "', "
                 . "`discount` ='" . $this->discount . "', "
-                . "`unite` ='" . $this->unite . "', "
+                . "`unit` ='" . $this->unit . "', "
                 . "`price` ='" . $this->price . "', "
                 . "`image_name` ='" . $this->image_name . "', "
                 . "`short_description` ='" . $this->short_description . "', "
@@ -330,9 +330,9 @@ class Product {
                         <div class="info-price">';
 
             if (!empty($discount)) {
-                $out_put .= ' <span id="price-format-design">Rs: ' . number_format($discount_price, 2) . '</span><span class="unit-display">/' . $row['unite'] . '</span><del>Rs: ' . number_format($price_amount, 2) . '</del>';
+                $out_put .= ' <span id="price-format-design">Rs: ' . number_format($discount_price, 2) . '</span><span class="unit-display">/' . $row['unit'] . '</span><del>Rs: ' . number_format($price_amount, 2) . '</del>';
             } else {
-                $out_put .= '<span id="price-format-design">Rs: ' . number_format($price_amount, 2) . '</span><span class="unit-display">/' . $row['unite'] . '</span> ';
+                $out_put .= '<span id="price-format-design">Rs: ' . number_format($price_amount, 2) . '</span><span class="unit-display">/' . $row['unit'] . '</span> ';
             }
 
             $out_put .= '</div>';
@@ -368,7 +368,7 @@ class Product {
                                 <div class="col-md-8"> 
                                     <p class="text-justify">' . $row['short_description'] . '</p>                                     
                                       <span pull-left> <i class="fa fa-circle"></i> Brand : ' . $BRAND->name . ' </span> </br>
-                                      <span pull-right> <i class="fa fa-circle"></i> Unit : ' . $row['unite'] . ' </span></br>
+                                      <span pull-right> <i class="fa fa-circle"></i> Unit : ' . $row['unit'] . ' </span></br>
                                           <span pull-right=""> <i class="fa fa-circle"></i> Order Limit : Minimum ' . $row['min_qty'] . ' & Maximum ' . $row['max_qty'] . ' </span><br>
                                         <div class="col-md-6  " id="price-padd">    
                                         
@@ -464,9 +464,9 @@ class Product {
                         <div class="info-price">';
 
             if (!empty($discount)) {
-                $out_put .= ' <span id="price-format-design">Rs: ' . number_format($discount_price, 2) . '</span><span class="unit-display">/' . $row['unite'] . '</span><del>Rs: ' . number_format($price_amount, 2) . '</del>';
+                $out_put .= ' <span id="price-format-design">Rs: ' . number_format($discount_price, 2) . '</span><span class="unit-display">/' . $row['unit'] . '</span><del>Rs: ' . number_format($price_amount, 2) . '</del>';
             } else {
-                $out_put .= '<span id="price-format-design">Rs: ' . number_format($price_amount, 2) . '</span><span class="unit-display">/' . $row['unite'] . '</span> ';
+                $out_put .= '<span id="price-format-design">Rs: ' . number_format($price_amount, 2) . '</span><span class="unit-display">/' . $row['unit'] . '</span> ';
             }
 
             $out_put .= '</div>';
@@ -502,7 +502,7 @@ class Product {
                                 <div class="col-md-8"> 
                                     <p class="text-justify">' . $row['short_description'] . '</p>                                     
                                       <span pull-left> <i class="fa fa-circle"></i> Brand : ' . $BRAND->name . ' </span> </br>
-                                      <span pull-right> <i class="fa fa-circle"></i> Unit : ' . $row['unite'] . ' </span></br>
+                                      <span pull-right> <i class="fa fa-circle"></i> Unit : ' . $row['unit'] . ' </span></br>
                                           <span pull-right=""> <i class="fa fa-circle"></i> Order Limit : Minimum ' . $row['min_qty'] . ' & Maximum ' . $row['max_qty'] . ' </span><br>
                                         <div class="col-md-6  " id="price-padd">    
                                         
@@ -605,9 +605,9 @@ class Product {
                         <div class="info-price">';
 
             if (!empty($discount)) {
-                $out_put .= ' <span id="price-format-design">Rs: ' . number_format($discount_price, 2) . '</span><span class="unit-display">/' . $row['unite'] . '</span><del>Rs: ' . number_format($price_amount, 2) . '</del>';
+                $out_put .= ' <span id="price-format-design">Rs: ' . number_format($discount_price, 2) . '</span><span class="unit-display">/' . $row['unit'] . '</span><del>Rs: ' . number_format($price_amount, 2) . '</del>';
             } else {
-                $out_put .= '<span id="price-format-design">Rs: ' . number_format($price_amount, 2) . '</span><span class="unit-display">/' . $row['unite'] . '</span> ';
+                $out_put .= '<span id="price-format-design">Rs: ' . number_format($price_amount, 2) . '</span><span class="unit-display">/' . $row['unit'] . '</span> ';
             }
 
             $out_put .= '</div>';
@@ -643,7 +643,7 @@ class Product {
                                 <div class="col-md-8"> 
                                     <p class="text-justify">' . $row['short_description'] . '</p>                                     
                                       <span pull-left> <i class="fa fa-circle"></i> Brand : ' . $BRAND->name . ' </span> </br>
-                                      <span pull-right> <i class="fa fa-circle"></i> Unit : ' . $row['unite'] . ' </span></br>
+                                      <span pull-right> <i class="fa fa-circle"></i> Unit : ' . $row['unit'] . ' </span></br>
                                           <span pull-right=""> <i class="fa fa-circle"></i> Order Limit : Minimum ' . $row['min_qty'] . ' & Maximum ' . $row['max_qty'] . ' </span><br>
                                         <div class="col-md-6  " id="price-padd">    
                                         
@@ -1178,9 +1178,9 @@ class Product {
                         <div class="info-price">';
 
             if (!empty($discount)) {
-                $out_put .= ' <span id="price-format-design">Rs: ' . number_format($discount_price, 2) . '</span><span class="unit-display">/' . $row['unite'] . '</span><del>Rs: ' . number_format($price_amount, 2) . '</del>';
+                $out_put .= ' <span id="price-format-design">Rs: ' . number_format($discount_price, 2) . '</span><span class="unit-display">/' . $row['unit'] . '</span><del>Rs: ' . number_format($price_amount, 2) . '</del>';
             } else {
-                $out_put .= '<span id="price-format-design">Rs: ' . number_format($price_amount, 2) . '</span><span class="unit-display">/' . $row['unite'] . '</span> ';
+                $out_put .= '<span id="price-format-design">Rs: ' . number_format($price_amount, 2) . '</span><span class="unit-display">/' . $row['unit'] . '</span> ';
             }
 
             $out_put .= '</div>';
@@ -1216,7 +1216,7 @@ class Product {
                                 <div class="col-md-8"> 
                                     <p class="text-justify">' . $row['short_description'] . '</p>                                     
                                       <span pull-left> <i class="fa fa-circle"></i> Brand : ' . $BRAND->name . ' </span> </br>
-                                      <span pull-right> <i class="fa fa-circle"></i> Unit : ' . $row['unite'] . ' </span></br>
+                                      <span pull-right> <i class="fa fa-circle"></i> Unit : ' . $row['unit'] . ' </span></br>
                                           <span pull-right=""> <i class="fa fa-circle"></i> Order Limit : Minimum ' . $row['min_qty'] . ' & Maximum ' . $row['max_qty'] . ' </span><br>
                                         <div class="col-md-6  " id="price-padd">    
                                         

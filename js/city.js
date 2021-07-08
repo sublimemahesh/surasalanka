@@ -18,8 +18,8 @@ $(document).ready(function () {
                     html += data.name;
                     html += '</option>';
                 });
-                $('#city-bar').empty();
-                $('#city-bar').append(html);
+                $('#city').empty();
+                $('#city').append(html);
             }
         });
     });

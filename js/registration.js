@@ -45,7 +45,7 @@ $(document).ready(function () {
                 timer: 2000,
                 showConfirmButton: false
             });
-        } else if (!$('#city-bar').val() || $('#city-bar').val().length === 0) {
+        } else if (!$('#city').val() || $('#city').val().length === 0) {
             swal({
                 title: "Error!",
                 text: "Please select city..!",

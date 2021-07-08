@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     load_cart_data();
     function load_cart_data() {
         $.ajax({
@@ -12,6 +11,7 @@ $(document).ready(function () {
                 $('.list-mini-cart-item').empty();
                 $('.list-mini-cart-item').append(data.cart_box);
                 $('.total-mini-cart-price').html('Rs.' + data.total_price);
+                $('.cart_sub_total').html('Rs.' + data.total_price);
             }
         });
     }

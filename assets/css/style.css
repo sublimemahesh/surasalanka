@@ -4922,7 +4922,8 @@ h6:last-child {
     border-radius: 3px;
     color: #1d1d1d;
     padding-left: 20px;
-    background: 0 0
+    background: 0 0;
+    width: 100%;
 }
 
 .signup-form form .form-control:focus {
@@ -7753,7 +7754,12 @@ blockquote::after,
     margin-right: 5px;
     color: #fbb403;
 }
-
+.hidden {
+    display: none;
+}
+.nice-select.form-control {
+    margin-bottom: 15px;
+}
 @media (max-width:991px){
     .main-responsive-nav .logo{
         width: 17%;
