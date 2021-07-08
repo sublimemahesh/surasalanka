@@ -7915,6 +7915,17 @@ blockquote::after,
 .checkbox-container input:checked~.checkmark {
     background-color: #fbb403;
 }
+.product-details-desc .product-add-to-cart .default-btn {
+    color: #000;
+    top: 13px;
+}
+.product-details-desc .product-add-to-cart .default-btn:hover {
+    color: #fff;
+    border: #000;
+    background: #000;
+    -webkit-transition: .6s;
+    transition        : .6s
+}
 
 @media (max-width:991px) {
     .main-responsive-nav .logo {

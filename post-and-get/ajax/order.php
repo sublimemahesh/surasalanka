@@ -23,10 +23,10 @@ if ($_POST['action'] == 'ADDORDER') {
     $ORDER->status = 1;
     $ORDER->paymentStatusCode = 0;
     $ORDER->deliveryStatus = 0;
-
+    
     $result = $ORDER->create();
     if ($result) {
-
+        
         $_SESSION['current_order_id'] = $result;
         foreach ($_SESSION["shopping_cart"] as $product) {
             $ORDERPRODUCT = new OrderProduct(NULL);
@@ -37,10 +37,12 @@ if ($_POST['action'] == 'ADDORDER') {
 
             $result1 = $ORDERPRODUCT->create();
         }
-
+        
         $ORD = new Order($result);
         $products = OrderProduct::getProductsByOrder($result);
-        // $res = $ORD->sendOrderMail($products);
+        
+        $res = $ORD->sendOrderMail($products);
+        // dd($res);
 // dd($res);
         //    $res = $ORD->sendOrderMailToAdmin($products);
 

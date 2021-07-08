@@ -20,12 +20,12 @@ if ($CUSTOMER->checkEmail($email)) {
         $site_link = "https://" . $_SERVER['HTTP_HOST'];
 
         //----------------------- DISPLAY STRINGS ---------------------
-        $comany_name = "Surasa Lanka";
+        $comany_name = "Surasa Lanka (Pvt) Ltd";
         $website_name = "www.surasalanka.com";
-        $comConNumber = "+94 77 029 0004";
+        $comConNumber = "+94 773 051 737";
         $comEmail = "info@surasalanka.com";
         $comOwner = "Team Surasa Lanka";
-        $reply_email_name = 'SURASA LANKA';
+        $reply_email_name = 'SURASA LANKA (PVT) LTD';
         $webmail = "noreply@surasalanka.com";
         
         $subject = 'Dashboard - Password Reset';
