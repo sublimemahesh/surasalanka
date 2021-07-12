@@ -89,7 +89,7 @@ if (!isset($_SESSION)) {
                             <div class="signature">
                                 <h4>Christopher Nolan</h4>
                                 <span>Manager At Surasa Lanka (Pvt) Ltd.</span>
-                                <img src="assets/img/about/signature.png" alt="image">
+
                             </div>
                         </div>
                     </div>
@@ -100,6 +100,20 @@ if (!isset($_SESSION)) {
                                 <img src="assets/img/about/shape.png" alt="image">
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="row mt-45">
+                    <div class="col-md-6">
+                        <div class="mid">
+                            <img src="upload/product-categories/sub-category/product/photos/<?php echo $PRODUCT->image_name; ?>" alt=""/>
+                            <p><i class="fa fa-search"></i> Mouse over to zoom in</p>
+                        </div>
+                        <a href="assets/img/about/1.jpg" class="entry-thumbnail"><img alt="Lessons of Resilience" src="assets/img/about/1.jpg"></a>
+                        <a href="assets/img/about/1.jpg" data-lightbox="mygallery"  data-title="Stair case" class="entry-title"></a>
+                    </div>
+                    <div class="col-md-6 cetificate2">
+                        <a href="assets/img/about/2.jpg" class="entry-thumbnail"><img alt="Lessons of Resilience" src="assets/img/about/2.jpg"></a>
+                        <a href="assets/img/about/2.jpg" data-lightbox="mygallery"  data-title="Stair case" class="entry-title"></a>
                     </div>
                 </div>
             </div>
@@ -148,5 +162,5 @@ if (!isset($_SESSION)) {
         <script src="assets/js/main.js"></script>
     </body>
 
-    
+
 </html>

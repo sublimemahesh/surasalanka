@@ -98,11 +98,11 @@ if (!isset($_SESSION)) {
                         <div class="box-item">
                             <ul class="box-table">
                                 <li>Sunday<span>Closed</span></li>
-                                <li>Monday<span>8.00 - 20.00</span></li>
-                                <li>Tuesday<span>10:00-5.00</span></li>
-                                <li>Wednesday<span>12:00-9:00</span></li>
-                                <li>Friday<span>3:00-1:00</span></li>
-                                <li>Saturday<span>9:00-12:00</span></li>
+                                <li>Monday<span>8.00 a.m. - 5.00 p.m.</span></li>
+                                <li>Tuesday<span>8.00 a.m. - 5.00 p.m.</span></li>
+                                <li>Wednesday<span>8.00 a.m. - 5.00 p.m.</span></li>
+                                <li>Friday<span>8.00 a.m. - 5.00 p.m.</span></li>
+                                <li>Saturday<span>8.00 a.m. - 5.00 p.m.</span></li>
                             </ul>
                         </div>
                     </div>
