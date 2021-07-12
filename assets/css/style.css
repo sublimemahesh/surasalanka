@@ -6500,7 +6500,6 @@ h6:last-child {
     position: absolute;
     height  : 1px;
     width   : 50px;
-    border  : 1px dashed #737373;
     top     : 12px;
     left    : 0;
     right   : 0;
@@ -7331,7 +7330,6 @@ blockquote::after,
     position: absolute;
     height  : 1px;
     width   : 50px;
-    border  : 1px dashed #fff;
     top     : 12px;
     left    : 0;
     right   : 0;
@@ -7965,4 +7963,10 @@ blockquote::after,
         padding-top   : 131px !important;
         padding-bottom: 59px !important;
     }
+    .cetificate2{
+        margin-top: 10px;
+    }
+}
+.mt-45{
+    margin-top:45px;
 }
