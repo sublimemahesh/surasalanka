@@ -218,7 +218,7 @@ if (!isset($_SESSION)) {
                                 <span>04</span>
                             </div>
                             <p>Quality control standards with certification of ISO22000 food products at affordable
-                                prices</p>
+                                prices.</p>
                         </div>
                         <div class="others-item two">
                             <div class="number">
