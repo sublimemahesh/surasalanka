@@ -161,7 +161,7 @@ if (!isset($_SESSION)) {
                             </div>
 
                             <div class="content">
-                                <a href="view-product.php?id=<?php echo $product['id']; ?>">
+                                <a href="product.php?id=<?php echo $product['id']; ?>">
                                     <h3><?php echo $product['name'] ?> </h3>
                                     <p><?php echo substr($product['short_description'], 0, 50) . '..'; ?></p>
                                     <span>Rs.<?php echo number_format($price, 2) ?></span>
