@@ -104,10 +104,6 @@ if (!isset($_SESSION)) {
                 </div>
                 <div class="row mt-45">
                     <div class="col-md-6">
-                        <div class="mid">
-                            <img src="upload/product-categories/sub-category/product/photos/<?php echo $PRODUCT->image_name; ?>" alt=""/>
-                            <p><i class="fa fa-search"></i> Mouse over to zoom in</p>
-                        </div>
                         <a href="assets/img/about/1.jpg" class="entry-thumbnail"><img alt="Lessons of Resilience" src="assets/img/about/1.jpg"></a>
                         <a href="assets/img/about/1.jpg" data-lightbox="mygallery"  data-title="Stair case" class="entry-title"></a>
                     </div>
