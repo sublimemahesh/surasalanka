@@ -318,7 +318,7 @@ class Product {
             $out_put .= ' <li class="col-md-4 col-sm-6 col-xs-12">
                             <div class="item-product">
                                 <div class="product-thumb">
-                                    <a class="product-thumb-link" href="view-product.php?id=' . $row['id'] . '">
+                                    <a class="product-thumb-link" href="product.php?id=' . $row['id'] . '">
                                         <img class="first-thumb" alt="" src="upload/product-categories/sub-category/product/photos/' . $row['image_name'] . '"> 
                                         <img class="second-thumb" alt="" src="upload/product-categories/sub-category/product/photos/' . $row['image_name'] . '"> 
                                     </a>
@@ -326,7 +326,7 @@ class Product {
                                     <div class="product-info-cart">' . $add_to_cart . '</div>
                                 </div>
                              <div class="product-info">
-                                <h3 class="title-product"><a href="view-product.php?id=' . $row['id'] . '" title="' . $row['name'] . '">' . $name . '</a></h3>
+                                <h3 class="title-product"><a href="product.php?id=' . $row['id'] . '" title="' . $row['name'] . '">' . $name . '</a></h3>
                         <div class="info-price">';
 
             if (!empty($discount)) {
@@ -452,7 +452,7 @@ class Product {
             $out_put .= ' <li class="col-md-4 col-sm-6 col-xs-12">
                             <div class="item-product">
                                 <div class="product-thumb">
-                                    <a class="product-thumb-link" href="view-product.php?id=' . $row['id'] . '">
+                                    <a class="product-thumb-link" href="product.php?id=' . $row['id'] . '">
                                         <img class="first-thumb" alt="" src="upload/product-categories/sub-category/product/photos/' . $row['image_name'] . '"> 
                                         <img class="second-thumb" alt="" src="upload/product-categories/sub-category/product/photos/' . $row['image_name'] . '"> 
                                     </a>
@@ -460,7 +460,7 @@ class Product {
                                     <div class="product-info-cart">' . $add_to_cart . '</div>
                                 </div>
                              <div class="product-info">
-                                <h3 class="title-product"><a href="view-product.php?id=' . $row['id'] . '" title="' . $row['name'] . '">' . $name . '</a></h3>
+                                <h3 class="title-product"><a href="product.php?id=' . $row['id'] . '" title="' . $row['name'] . '">' . $name . '</a></h3>
                         <div class="info-price">';
 
             if (!empty($discount)) {
@@ -593,7 +593,7 @@ class Product {
             $out_put .= ' <li class="col-md-4 col-sm-6 col-xs-12">
                             <div class="item-product">
                                 <div class="product-thumb">
-                                    <a class="product-thumb-link" href="view-product.php?id=' . $row['id'] . '">
+                                    <a class="product-thumb-link" href="product.php?id=' . $row['id'] . '">
                                         <img class="first-thumb" alt="" src="upload/product-categories/sub-category/product/photos/' . $row['image_name'] . '"> 
                                         <img class="second-thumb" alt="" src="upload/product-categories/sub-category/product/photos/' . $row['image_name'] . '"> 
                                     </a>
@@ -601,7 +601,7 @@ class Product {
                                     <div class="product-info-cart">' . $add_to_cart . '</div>
                                 </div>
                              <div class="product-info">
-                                <h3 class="title-product"><a href="view-product.php?id=' . $row['id'] . '" title="' . $row['name'] . '">' . $name . '</a></h3>
+                                <h3 class="title-product"><a href="product.php?id=' . $row['id'] . '" title="' . $row['name'] . '">' . $name . '</a></h3>
                         <div class="info-price">';
 
             if (!empty($discount)) {
@@ -1166,7 +1166,7 @@ class Product {
             $out_put .= ' <li class="col-md-4 col-sm-6 col-xs-12">
                             <div class="item-product">
                                 <div class="product-thumb">
-                                    <a class="product-thumb-link" href="view-product.php?id=' . $row['id'] . '">
+                                    <a class="product-thumb-link" href="product.php?id=' . $row['id'] . '">
                                         <img class="first-thumb" alt="" src="upload/product-categories/sub-category/product/photos/' . $row['image_name'] . '"> 
                                         <img class="second-thumb" alt="" src="upload/product-categories/sub-category/product/photos/' . $row['image_name'] . '"> 
                                     </a>
@@ -1174,7 +1174,7 @@ class Product {
                                     <div class="product-info-cart">' . $add_to_cart . '</div>
                                 </div>
                              <div class="product-info">
-                                <h3 class="title-product"><a href="view-product.php?id=' . $row['id'] . '" title="' . $row['name'] . '">' . $name . '</a></h3>
+                                <h3 class="title-product"><a href="product.php?id=' . $row['id'] . '" title="' . $row['name'] . '">' . $name . '</a></h3>
                         <div class="info-price">';
 
             if (!empty($discount)) {

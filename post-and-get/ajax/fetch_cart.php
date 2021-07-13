@@ -86,7 +86,7 @@ if (!empty($_SESSION["shopping_cart"])) {
                 . '<td class="text-center" style="width:70px">'
                 . '<a href="#"> <img src="upload/product-categories/sub-category/product/photos/' . $PRODUCT1->image_name . '" style="width:70px" alt="' . $PRODUCT1->name . '" title="' . $PRODUCT1->name . '" class="preview"> </a>'
                 . '</td>'
-                . '<td class="text-left"> <a class="cart_product_name" href="view-product.php?id=' . $PRODUCT1->id . '">' . $PRODUCT1->name . '</a> </td>'
+                . '<td class="text-left"> <a class="cart_product_name" href="product.php?id=' . $PRODUCT1->id . '">' . $PRODUCT1->name . '</a> </td>'
                 . '<td class="text-center"> x' . $product1["product_quantity"] . ' </td>'
                 . '<td class="text-center">Rs. ' . number_format($price1, 2) . '</td>'
                 . '</tr>';

@@ -1475,7 +1475,7 @@ h6:last-child {
 }
 
 .product-box {
-    height: 428px;
+    height: auto;
 }
 
 .burger-shop-slider .burger-shop-item .content h3 {
@@ -7913,16 +7913,60 @@ blockquote::after,
 .checkbox-container input:checked~.checkmark {
     background-color: #fbb403;
 }
+
 .product-details-desc .product-add-to-cart .default-btn {
     color: #000;
-    top: 13px;
+    top  : 13px;
 }
+
 .product-details-desc .product-add-to-cart .default-btn:hover {
-    color: #fff;
-    border: #000;
-    background: #000;
+    color             : #fff;
+    border            : #000;
+    background        : #000;
     -webkit-transition: .6s;
     transition        : .6s
+}
+
+.terms_and_conditions_page ul li p {
+    margin-top: 20px;
+}
+
+.main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn a {
+    padding-right: 0;
+}
+
+.main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn h5 {
+    color: #fff;
+}
+
+.main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn h5.text-black {
+    color: #000;
+}
+
+.navbar-area.is-sticky .main-navbar .navbar .others-options .option-item .cart-btn a h5 {
+    color: #1d1d1d;
+}
+
+.navbar-area.is-sticky .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_up_btn_w,
+.navbar-area.is-sticky .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_in_btn_w {
+    display: none;
+}
+.navbar-area.is-sticky .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_up_btn_b,
+.navbar-area.is-sticky .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_in_btn_b {
+    display: block;
+}
+.navbar-area .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_up_btn_w,
+.navbar-area .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_in_btn_w {
+    display: block;
+}
+.navbar-area .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_up_btn_b,
+.navbar-area .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_in_btn_b {
+    display: none;
+}
+
+.sign-in-btn a img {
+    width: 30px;
+
 }
 
 @media (max-width:991px) {
@@ -7963,10 +8007,12 @@ blockquote::after,
         padding-top   : 131px !important;
         padding-bottom: 59px !important;
     }
-    .cetificate2{
+
+    .cetificate2 {
         margin-top: 10px;
     }
 }
-.mt-45{
-    margin-top:45px;
+
+.mt-45 {
+    margin-top: 45px;
 }

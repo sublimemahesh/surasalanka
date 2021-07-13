@@ -244,7 +244,7 @@ $delivery_charge = DefaultData::getDeliveryCharges();
                             <div class="payment-box">
                                 <div class="row">
                                     <div class="col-xs-12 agree-check-box">
-                                        <label class="checkbox-container">Click here to indicate that you have read and agree to the booking
+                                        <label class="checkbox-container">Click here to indicate that you have read and agree to the <a href="terms-and-conditions.php" target="_blank" class="text-blue">terms and conditions</a>.
                                             <input type="checkbox" name="agree" id="agree"><span class="checkmark">
                                             </span>
                                         </label>
