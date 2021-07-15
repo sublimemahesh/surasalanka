@@ -72,14 +72,14 @@
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
                                     <a href="login.php" class="nav-link">
-                                        <img src="assets/img/image-icon/signin.png" alt="Sign In" />
+                                        <img src="assets/img/image-icon/signin.png" alt="Sign In" /> Sign In
                                     </a>
                                 </div>
                             </div>
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
                                     <a href="sign-up.php" class="nav-link">
-                                        <img src="assets/img/image-icon/signup.png" alt="Sign Up" />
+                                        <img src="assets/img/image-icon/signup.png" alt="Sign Up" /> Sign Up
                                     </a>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                         ?>
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
-                                    <a href="member/" class="nav-link" title="Sign In">
+                                    <a href="member/" class="nav-link" title="My Account">
                                         <h5 class="text-black">Hi, <?php
                                                                     $arr = explode(' ', $_SESSION['name']);
 
@@ -99,7 +99,7 @@
                         <?php
                         }
                         ?>
-                        <div class="option-item">
+                        <div class="option-item cart-icon-section">
                             <div class="cart-btn">
                                 <a href="cart.php">
                                     <i class="flaticon-shopping-cart"></i>

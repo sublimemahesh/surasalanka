@@ -12,7 +12,7 @@ if (isset($_POST['create'])) {
     $PRODUCT->brand = $_POST['brand'];
     $PRODUCT->name = $_POST['name'];
     $PRODUCT->discount = $_POST['discount'];
-    $PRODUCT->unite = $_POST['unite'];
+    $PRODUCT->unit = $_POST['unite'];
     $PRODUCT->price = $_POST['price'];
     $PRODUCT->short_description = $_POST['short_description'];
     $PRODUCT->description = $_POST['description'];
@@ -121,7 +121,7 @@ if (isset($_POST['update'])) {
     $PRODUCT->min_qty = $_POST['min_qty'];
     $PRODUCT->max_qty = $_POST['max_qty'];
     $PRODUCT->discount = $_POST['discount'];
-    $PRODUCT->unite = $_POST['unite'];
+    $PRODUCT->unit = $_POST['unite'];
     $PRODUCT->price = $_POST['price'];
 
     $VALID = new Validator();

@@ -153,7 +153,7 @@ $PRODUCT = new Product($id);
                                     <div class="col-md-12">
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" id="unite" class="form-control"  value="<?php echo $PRODUCT->unite; ?>"  name="unite"  required="TRUE">
+                                                <input type="text" id="unite" class="form-control"  value="<?php echo $PRODUCT->unit; ?>"  name="unite"  required="TRUE">
                                                 <label class="form-label">Unit</label>
                                             </div>
                                         </div>

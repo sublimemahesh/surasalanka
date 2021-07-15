@@ -7932,11 +7932,32 @@ blockquote::after,
 }
 
 .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn a {
-    padding-right: 0;
+    padding-right     : 0;
+    color             : #1d1d1d;
+    -webkit-transition: .5s;
+    transition        : .5s;
+    font-size         : 16px;
+    font-weight       : 500;
+    text-transform    : uppercase;
+    padding-left      : 0;
+    padding-right     : 0;
+    padding-top       : 25px;
+    padding-bottom    : 25px;
 }
 
-.main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn h5 {
-    color: #fff;
+.main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn a:hover {
+    color: #fbb403;
+}
+
+.main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn a:hover {
+    color: #fbb403;
+}
+
+.main-navbar .navbar .others-options .option-item.cart-icon-section {
+    background   : #fff;
+    padding      : 10px 10px 2px;
+    border-radius: 50%;
+
 }
 
 .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn h5.text-black {
@@ -7973,8 +7994,8 @@ blockquote::after,
 }
 
 .terms_and_conditions_page ul h4 {
-    margin-top: 30px;
-    text-align: justify;
+    margin-top     : 30px;
+    text-align     : justify;
     visibility     : visible;
     animation-delay: 0.3s;
     animation-name : fadeInUp;
@@ -7986,8 +8007,48 @@ blockquote::after,
     animation-delay: 0.3s;
     animation-name : fadeInUp;
 }
+
 .terms_and_conditions_page ul li p {
-    text-align     : justify;
+    text-align: justify;
+}
+
+.sign_in_btn_w,
+.sign_up_btn_w {
+    margin-top: 15px;
+}
+
+.header2 .navbar .others-options .option-item .cart-btn a span.header-2-sign-btn {
+    top       : -21px;
+    position  : relative;
+    left      : 36px;
+    background: transparent;
+    font-size : 16px;
+    color     : #fff;
+}
+
+.nav-link.nav-link-2 {
+    width: 100px;
+}
+
+.main-navbar.header2 .navbar .others-options .option-item.cart-icon-section {
+    background: #000;
+}
+
+.navbar-area.is-sticky .main-navbar.header2 .navbar .others-options .option-item .cart-btn a span.header-2-sign-btn {
+    background-color: transparent;
+    color           : #000;
+    top             : 22px;
+}
+
+.navbar-area.is-sticky .main-navbar.header2 .navbar .others-options .option-item .cart-btn a {
+    margin-top: -20px;
+}
+
+.navbar-area.is-sticky .main-navbar.header2 .navbar .others-options .option-item .cart-btn a span.header-2-sign-up-btn {
+    top: 24px;
+}
+.navbar-area.is-sticky .main-navbar.header2 .navbar .others-options .option-item.cart-icon-section {
+    background: #fff;
 }
 
 @media (max-width:991px) {
