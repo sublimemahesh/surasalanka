@@ -65,31 +65,19 @@ include_once(dirname(__FILE__) . '/auth.php');
 
                                     <div class="row">
                                         <div class="col-lg-1 col-md-1 hidden-sm hidden-xs form-control-label">
-                                            <label for="icon">Icon</label>
+                                            <label for="icon">Image Name</label>
                                         </div>
                                         <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12 p-bottom">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <label for="icon" class="hidden-lg hidden-md">Icon</label>
+                                                    <label for="icon" class="hidden-lg hidden-md">Image Name</label>
                                                     <input type="file" id="icon" class="form-control" name="icon"    required="true">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-1 col-md-1 hidden-sm hidden-xs form-control-label">
-                                            <label for="banner">Banner</label>
-                                        </div>
-                                        <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12 p-bottom">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <label for="banner" class="hidden-lg hidden-md">Banner</label>
-                                                    <input type="file" id="banner" class="form-control" name="banner"   required="true" >
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> 
+                                     
 
                                     <div class="row">
                                         <div class="col-lg-1 col-md-1 hidden-sm hidden-xs form-control-label">

@@ -32,7 +32,7 @@
                                 </li>
                                 <li>
                                     <i class="flaticon-aim"></i>
-                                    Surasa Lanka (Pvt) Ltd., <br> 183/2, Rppagoda, Gonahena,Kadawatha.
+                                    Surasa Lanka (Pvt) Ltd., <br> 183/2, Ruppagoda, Gonahena,Kadawatha.
                                   
 
 
@@ -95,10 +95,7 @@
                         <div class="col-lg-6 col-md-6">
                             <ul>
                                 <li>
-                                    <a href="#">Terms & Conditions</a>
-                                </li>
-                                <li>
-                                    <a href="#">Privacy Policy</a>
+                                    <a href="terms-and-conditions.php">Terms & Conditions</a>
                                 </li>
                             </ul>
                         </div>

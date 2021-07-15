@@ -5,13 +5,8 @@ $id = '';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
-if (isset($_GET['category'])) {
-    $category = $_GET['category'];
-}
 
-$PRODUCT_CATEGORIES = new ProductCategories($category);
-$PRODUCT_CATEGORIES1 = new ProductCategories($id);
-$PRODUCT = new Product($id);
+$PRODUCT_CATEGORY = new ProductCategories($id);
 ?> 
 <!DOCTYPE html>
 
@@ -50,10 +45,10 @@ $PRODUCT = new Product($id);
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h2>Create Product - "<?php echo $PRODUCT_CATEGORIES1->name ?>" </h2>
+                                <h2>Create Product - "<?php echo $PRODUCT_CATEGORY->name ?>" </h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="create-product-categories.php?id=<?php echo $PRODUCT_CATEGORIES1->category; ?>">
+                                        <a href="manage-product-categories.php">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>
@@ -68,9 +63,13 @@ $PRODUCT = new Product($id);
                                                     <option value=""> -- Please Select the Product Category -- </option> 
                                                     <?php
                                                     $PRODUCT_CATEGORIES = new ProductCategories(NULL);
-                                                    foreach ($PRODUCT_CATEGORIES->all() as $product_categories) {
+                                                    foreach ($PRODUCT_CATEGORIES->all() as $product_category) {
+                                                        $selected = '';
+                                                        if($product_category['id'] == $id) {
+                                                            $selected = 'selected';
+                                                        }
                                                         ?>
-                                                        <option value="<?php echo $product_categories['id'] ?>"> <?php echo $product_categories['name'] ?></option> 
+                                                        <option value="<?php echo $product_category['id'] ?>" <?= $selected; ?>> <?php echo $product_category['name'] ?></option> 
                                                     <?php }
                                                     ?>
                                                 </select>
@@ -200,7 +199,7 @@ $PRODUCT = new Product($id);
                                         }
                                     } else {
                                         ?> 
-                                        <b style="padding-left: 15px;">No Photo Albums in the database.</b> 
+                                        <b style="padding-left: 15px;">No any products.</b> 
                                     <?php } ?> 
 
                                 </div>

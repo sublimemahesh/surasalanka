@@ -70,11 +70,11 @@ $PRODUCT_CATEGORIES = new ProductCategories($id);
 
                                     <div class="row">
                                         <div class="col-lg-1 col-md-1 hidden-sm hidden-xs form-control-label">
-                                            <label for="icon">Icon</label>
+                                            <label for="icon">Image Name</label>
                                         </div>
                                         <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12 p-bottom">
                                             <div class="form-group">
-                                                <label for="icon" class="hidden-lg hidden-md">Icon</label>
+                                                <label for="icon" class="hidden-lg hidden-md">Image Name</label>
                                                 <input type="file" id="icon" class="form-control" name="icon" >
                                                 <?php if ($PRODUCT_CATEGORIES->icon == NULL) { ?>
                                                     <img src="../upload/product-categories/product-no-image.jpg" class="img-responsive img-thumbnail">
@@ -86,7 +86,7 @@ $PRODUCT_CATEGORIES = new ProductCategories($id);
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-lg-1 col-md-1 hidden-sm hidden-xs form-control-label">
                                             <label for="banner">Banner</label>
                                         </div>
@@ -102,7 +102,7 @@ $PRODUCT_CATEGORIES = new ProductCategories($id);
                                                 <?php } ?>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>  -->
 
                                     <div class="row">
                                         <div class="col-lg-1 col-md-1 hidden-sm hidden-xs form-control-label">

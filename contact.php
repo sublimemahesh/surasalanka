@@ -87,7 +87,7 @@ if (!isset($_SESSION)) {
                                 <div class="icon">
                                     <i class="flaticon-world"></i>
                                 </div>
-                                <p>Surasa Lanka (Pvt) Ltd., 183/2, Rppagoda, Gonahena,Kadawatha.</p>
+                                <p>Surasa Lanka (Pvt) Ltd., 183/2, Ruppagoda, Gonahena,Kadawatha.</p>
                                 <div class="shape">
                                     <img src="assets/img/image-icon/2.png" alt="image">
                                 </div>
