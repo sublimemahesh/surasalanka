@@ -48,7 +48,7 @@ $PRODUCT = new Product($id);
                                 <h2> Product Photos - "<?php echo $PRODUCT->name ?>"</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="view-products.php?id=<?php echo $PRODUCT->sub_category; ?>">
+                                        <a href="view-products.php?id=<?php echo $PRODUCT->category; ?>">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>

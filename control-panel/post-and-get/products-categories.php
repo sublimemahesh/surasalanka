@@ -34,29 +34,29 @@ if (isset($_POST['create'])) {
     $PRODUCT_CATEGORIES->icon = $imgName;
 
 
-    $dir_dest_banner = '../../upload/product-categories/banner/';
+    // $dir_dest_banner = '../../upload/product-categories/banner/';
 
-    $handle = new Upload($_FILES['banner']);
+    // $handle = new Upload($_FILES['banner']);
 
-    $imgName = null;
+    // $imgName = null;
 
-    if ($handle->uploaded) {
-        $handle->image_resize = true;
-        $handle->file_new_name_ext = 'jpg';
-        $handle->image_ratio_crop = 'C';
-        $handle->file_new_name_body = Helper::randamId();
-        $handle->image_x = 546;
-        $handle->image_y = 400;
+    // if ($handle->uploaded) {
+    //     $handle->image_resize = true;
+    //     $handle->file_new_name_ext = 'jpg';
+    //     $handle->image_ratio_crop = 'C';
+    //     $handle->file_new_name_body = Helper::randamId();
+    //     $handle->image_x = 546;
+    //     $handle->image_y = 400;
 
-        $handle->Process($dir_dest_banner);
+    //     $handle->Process($dir_dest_banner);
 
-        if ($handle->processed) {
-            $info = getimagesize($handle->file_dst_pathname);
-            $imgName = $handle->file_dst_name;
-        }
-    }
+    //     if ($handle->processed) {
+    //         $info = getimagesize($handle->file_dst_pathname);
+    //         $imgName = $handle->file_dst_name;
+    //     }
+    // }
 
-    $PRODUCT_CATEGORIES->banner = $imgName;
+    // $PRODUCT_CATEGORIES->banner = $imgName;
 
     $VALID->check($PRODUCT_CATEGORIES, [
         'name' => ['required' => TRUE]
@@ -70,7 +70,7 @@ if (isset($_POST['create'])) {
         }
         $VALID->addError("Your data was saved successfully", 'success');
         $_SESSION['ERRORS'] = $VALID->errors();
-        header("location: ../create-sub-category.php?id=" . $PRODUCT_CATEGORIES->id);
+        header("location: ../view-products.php?id=" . $PRODUCT_CATEGORIES->id);
     } else {
 
         if (!isset($_SESSION)) {
@@ -113,31 +113,31 @@ if (isset($_POST['update'])) {
         $PRODUCT_CATEGORIES->icon = $handle->file_dst_name;
     }
 
-    $dir_dest_banner = '../../upload/product-categories/banner/';
+    // $dir_dest_banner = '../../upload/product-categories/banner/';
 
-    $handle = new Upload($_FILES['banner']);
-    if ($handle->uploaded) {
-        if (empty($_POST["oldImageBanner"])) {
-            $handle->image_resize = true;
-            $handle->file_new_name_ext = 'jpg';
-            $handle->image_ratio_crop = 'C';
-            $handle->file_new_name_body = Helper::randamId();
-        } else {
-            $handle->image_resize = true;
-            $handle->file_new_name_body = TRUE;
-            $handle->file_overwrite = TRUE;
-            $handle->file_new_name_ext = FALSE;
-            $handle->image_ratio_crop = 'C';
-            $handle->file_new_name_body = $_POST["oldImageBanner"];
-        }
+    // $handle = new Upload($_FILES['banner']);
+    // if ($handle->uploaded) {
+    //     if (empty($_POST["oldImageBanner"])) {
+    //         $handle->image_resize = true;
+    //         $handle->file_new_name_ext = 'jpg';
+    //         $handle->image_ratio_crop = 'C';
+    //         $handle->file_new_name_body = Helper::randamId();
+    //     } else {
+    //         $handle->image_resize = true;
+    //         $handle->file_new_name_body = TRUE;
+    //         $handle->file_overwrite = TRUE;
+    //         $handle->file_new_name_ext = FALSE;
+    //         $handle->image_ratio_crop = 'C';
+    //         $handle->file_new_name_body = $_POST["oldImageBanner"];
+    //     }
 
-        $handle->image_x = 546;
-        $handle->image_y = 400;
+    //     $handle->image_x = 546;
+    //     $handle->image_y = 400;
 
-        $handle->Process($dir_dest_banner);
+    //     $handle->Process($dir_dest_banner);
 
-        $PRODUCT_CATEGORIES->banner = $handle->file_dst_name;
-    }
+    //     $PRODUCT_CATEGORIES->banner = $handle->file_dst_name;
+    // }
 
     $PRODUCT_CATEGORIES->name = $_POST['name'];
 

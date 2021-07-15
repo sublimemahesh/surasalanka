@@ -257,7 +257,7 @@ if (!isset($_SESSION)) {
                         <div class="testimonial-slider owl-carousel owl-theme">
                             <?php
                             $COMMENT = new Comments(NULL);
-                            foreach ($COMMENT->all() as $comment) {
+                            foreach ($COMMENT->activeComments() as $comment) {
                                 ?>
                                 <div class="testimonial-item">
                                     <div class="info">

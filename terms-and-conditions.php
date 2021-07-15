@@ -84,24 +84,7 @@ if (!isset($_SESSION)) {
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="about-content">
-                        <ul class="about_info ul_li_block">
-                            <li class="wow fadeInUp" style="text-align: justify; visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;" data-wow-delay=".3s">
-                                <p class="text-uppercase">Deliveries will be processed within 4 days (may take up to 7 days if delayed) </p>
-                                <!-- <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> -->
-                            </li>
-                            <li class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-                                <p class="text-uppercase" style="text-align: justify;">If in case the stocks are not available or getting delayed the payment will be fully refunded </p>
-                                <!-- <p class="mb-0" style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> -->
-                            </li>
-                            <li class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-                                <p class="text-uppercase" style="text-align: justify;">In case if the service will have to be suspended due to government-imposed laws in the later stage, the payments will be fully refunded </p>
-                                <!-- <p class="mb-0" style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> -->
-                            </li>
-                            <li class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-                                <p class="text-uppercase" style="text-align: justify;">The delivery address must comply with the province, district and the city you entered on creating the account </p>
-                                <!-- <p class="mb-0" style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> -->
-                            </li>
-                        </ul>
+                        
                     </div>
                 </div>
             </div>

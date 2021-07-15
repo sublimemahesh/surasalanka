@@ -7951,14 +7951,17 @@ blockquote::after,
 .navbar-area.is-sticky .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_in_btn_w {
     display: none;
 }
+
 .navbar-area.is-sticky .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_up_btn_b,
 .navbar-area.is-sticky .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_in_btn_b {
     display: block;
 }
+
 .navbar-area .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_up_btn_w,
 .navbar-area .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_in_btn_w {
     display: block;
 }
+
 .navbar-area .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_up_btn_b,
 .navbar-area .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn img.sign_in_btn_b {
     display: none;
@@ -7967,6 +7970,24 @@ blockquote::after,
 .sign-in-btn a img {
     width: 30px;
 
+}
+
+.terms_and_conditions_page ul h4 {
+    margin-top: 30px;
+    text-align: justify;
+    visibility     : visible;
+    animation-delay: 0.3s;
+    animation-name : fadeInUp;
+}
+
+.terms_and_conditions_page ul li {
+    text-align     : justify;
+    visibility     : visible;
+    animation-delay: 0.3s;
+    animation-name : fadeInUp;
+}
+.terms_and_conditions_page ul li p {
+    text-align     : justify;
 }
 
 @media (max-width:991px) {
