@@ -195,58 +195,66 @@ $price = $PRODUCT->price - $discount;
                 <div class="row">
                     <?php
                     $PRODUCT1 = new Product(NULL);
-                    foreach ($PRODUCT1->all() as $key => $product1) {
-                        if ($key < 4) {
-                            $discount = $product1['price'] * $product1['discount'] / 100;
-                            $price = $product1['price'] - $discount;
-                    ?>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="single-product">
-                                    <div class="product-image">
-                                        <a href="product.php?id=<?php echo $product1['id']; ?>">
-                                            <img src="upload/product-categories/sub-category/product/photos/<?php echo $product1['image_name'] ?>" alt="image">
-                                        </a>
-                                        <?php
-                                        if ($product1['in_stock'] == 1) {
-                                        ?>
-                                            <input type="hidden" id="name<?= $product1['id']; ?>" value="<?= $product1['name']; ?>" />
-                                            <input type="hidden" id="price<?= $product1['id']; ?>" value="<?= $price; ?>" />
-                                            <input type="hidden" id="quantity<?= $product1['id']; ?>" value="1" />
-                                            <a href="#" id="<?php echo $product1['id']; ?>" min-qty="<?php echo $product1['min_qty']; ?>" max-qty="<?php echo $product1['max_qty']; ?>" class="add_to_cart add-to-cart-btn"> Add to Cart
-                                                <i class="flaticon-play-button"></i>
-                                            </a>
+                    $counter = 0;
+                    foreach ($PRODUCT1->getProductsByCategory($PRODUCT->category) as $key => $product1) {
+                        if ($key < 5) {
+                            if ($product1['id'] != $PRODUCT->id) {
+                                if ($counter == 4) {
+                                    break;
+                                }
 
-                                        <?php
-                                        } else {
-                                        ?>
-                                            <div class="add-to-cart-btn "><i class="flaticon-shopping-cart"></i> Not in Stock</div>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3>
-                                            <a href="product.php?id=<?php echo $product1['id']; ?>"><?php echo $product1['name']; ?></a>
-                                        </h3>
-                                        <div class="price">
+                                $discount = $product1['price'] * $product1['discount'] / 100;
+                                $price = $product1['price'] - $discount;
+                    ?>
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="single-product">
+                                        <div class="product-image">
+                                            <a href="product.php?id=<?php echo $product1['id']; ?>">
+                                                <img src="upload/product-categories/sub-category/product/photos/<?php echo $product1['image_name'] ?>" alt="image">
+                                            </a>
                                             <?php
-                                            if ($product1['discount'] == 0) {
+                                            if ($product1['in_stock'] == 1) {
                                             ?>
-                                                <span class="new">Rs. <?php echo number_format($product1['price'], 2); ?></span>
+                                                <input type="hidden" id="name<?= $product1['id']; ?>" value="<?= $product1['name']; ?>" />
+                                                <input type="hidden" id="price<?= $product1['id']; ?>" value="<?= $price; ?>" />
+                                                <input type="hidden" id="quantity<?= $product1['id']; ?>" value="1" />
+                                                <a href="#" id="<?php echo $product1['id']; ?>" min-qty="<?php echo $product1['min_qty']; ?>" max-qty="<?php echo $product1['max_qty']; ?>" class="add_to_cart add-to-cart-btn"> Add to Cart
+                                                    <i class="flaticon-play-button"></i>
+                                                </a>
+
                                             <?php
                                             } else {
-
                                             ?>
-                                                <span class="new">Rs. <?php echo number_format($price, 2); ?></span><del>Rs. <?php echo number_format($product1['price'], 2); ?></del>
+                                                <div class="add-to-cart-btn "><i class="flaticon-shopping-cart"></i> Not in Stock</div>
                                             <?php
                                             }
                                             ?>
                                         </div>
+                                        <div class="product-content">
+                                            <h3>
+                                                <a href="product.php?id=<?php echo $product1['id']; ?>"><?php echo $product1['name']; ?></a>
+                                            </h3>
+                                            <div class="price">
+                                                <?php
+                                                if ($product1['discount'] == 0) {
+                                                ?>
+                                                    <span class="new">Rs. <?php echo number_format($product1['price'], 2); ?></span>
+                                                <?php
+                                                } else {
 
+                                                ?>
+                                                    <span class="new">Rs. <?php echo number_format($price, 2); ?></span><del>Rs. <?php echo number_format($product1['price'], 2); ?></del>
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                     <?php
+                                $counter++;
+                            }
                         }
                     }
                     ?>
