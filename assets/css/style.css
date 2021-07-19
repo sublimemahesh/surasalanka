@@ -569,7 +569,10 @@ h6:last-child {
 }
 
 .main-navbar .navbar .others-options .option-item {
-    margin-right: 20px
+    margin-right: 12px
+}
+.main-navbar.header2 .navbar .others-options .option-item {
+    margin-right: 6px
 }
 
 .main-navbar .navbar .others-options .option-item:last-child {
@@ -3847,7 +3850,7 @@ h6:last-child {
     margin-bottom: 0;
     color        : #fff;
     font-family  : poppins, sans-serif;
-    font-size    : 50px
+    font-size    : 38px
 }
 
 .page-title-content ul {
@@ -7779,6 +7782,10 @@ blockquote::after,
     color: #fff;
 }
 
+.navbar-area.is-sticky .main-navbar.header2 .navbar .others-options .option-item .cart-btn a span.header-2-sign-btn {
+    color: #000 !important;
+}
+
 .header2 .navbar .others-options .option-item .cart-btn a span {
     background-color: #fff;
     color           : #1d1d1d;
@@ -7936,7 +7943,7 @@ blockquote::after,
     color             : #1d1d1d;
     -webkit-transition: .5s;
     transition        : .5s;
-    font-size         : 16px;
+    font-size         : 15px;
     font-weight       : 500;
     text-transform    : uppercase;
     padding-left      : 0;
@@ -7951,6 +7958,13 @@ blockquote::after,
 
 .main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn a:hover {
     color: #fbb403;
+}
+.main-navbar .navbar .others-options .option-item .cart-btn.sign-in-btn a h5 {
+    color: #fff;
+}
+
+.navbar-area.is-sticky .main-navbar.header2 .navbar .others-options .option-item.user_name_section .cart-btn a {
+    margin-top: 0px;
 }
 
 .main-navbar .navbar .others-options .option-item.cart-icon-section {
@@ -7988,8 +8002,20 @@ blockquote::after,
     display: none;
 }
 
+.main-navbar .navbar .others-options .option-item.cart-icon-section {
+    background   : #fff;
+    padding      : 10px 10px 2px;
+    border-radius: 50%;
+}
+
+.navbar-area.is-sticky .main-navbar .navbar .others-options .option-item.cart-icon-section {
+    background   : transparent;
+    padding      : 0;
+    border-radius: 0%;
+}
+
 .sign-in-btn a img {
-    width: 30px;
+    width: 25px;
 
 }
 
@@ -8018,12 +8044,21 @@ blockquote::after,
 }
 
 .header2 .navbar .others-options .option-item .cart-btn a span.header-2-sign-btn {
-    top       : -21px;
-    position  : relative;
-    left      : 36px;
-    background: transparent;
-    font-size : 16px;
-    color     : #fff;
+    top        : -21px;
+    position   : relative;
+    left       : 36px;
+    background : transparent;
+    font-size  : 16px;
+    color      : #fff !important;
+    font-weight: 500;
+}
+
+.navbar-area.is-sticky .main-navbar.header2 .navbar .others-options .option-item .cart-btn a span.header-2-sign-btn {
+    font-size: 15px;
+}
+
+.header2 .navbar .others-options .option-item .cart-btn a span.header-2-sign-btn a h5 {
+    color: #fff !important;
 }
 
 .nav-link.nav-link-2 {
@@ -8037,7 +8072,7 @@ blockquote::after,
 .navbar-area.is-sticky .main-navbar.header2 .navbar .others-options .option-item .cart-btn a span.header-2-sign-btn {
     background-color: transparent;
     color           : #000;
-    top             : 22px;
+    top             : 20px;
 }
 
 .navbar-area.is-sticky .main-navbar.header2 .navbar .others-options .option-item .cart-btn a {
@@ -8045,10 +8080,20 @@ blockquote::after,
 }
 
 .navbar-area.is-sticky .main-navbar.header2 .navbar .others-options .option-item .cart-btn a span.header-2-sign-up-btn {
-    top: 24px;
+    top: 22px;
 }
+
+.header2 .navbar .others-options .option-item .cart-btn a span.header-2-sign-btn {
+    font-size: 15px;
+}
+
 .navbar-area.is-sticky .main-navbar.header2 .navbar .others-options .option-item.cart-icon-section {
     background: #fff;
+}
+
+.navbar-area.is-sticky .main-navbar .navbar .others-options .option-item.cart-icon-section .cart-btn a {
+    top     : 5px;
+    position: relative;
 }
 
 @media (max-width:991px) {

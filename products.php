@@ -6,13 +6,12 @@ if (!isset($_SESSION)) {
     session_start();
 }
 $id = '';
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+if (isset($_GET['category'])) {
+    $id = $_GET['category'];
 }
 
-$PRODUCT_CATEGORIES = new ProductCategories($_GET['id']);
-
-$PRODUCT = new Product($id);
+$PRODUCT_CATEGORY = new ProductCategories($id);
+// $PRODUCT = new Product($id);
 
 ?>
 <!doctype html>
@@ -47,7 +46,7 @@ $PRODUCT = new Product($id);
     <link rel="stylesheet" href="assets/css/style.css">
 
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <title>Surasa Lanka (Pvt) Ltd. | <?php echo $PRODUCT_CATEGORIES->name; ?></title>
+    <title>Surasa Lanka (Pvt) Ltd. | <?php echo $PRODUCT_CATEGORY->name; ?></title>
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
     <link href="control-panel/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
@@ -73,13 +72,17 @@ $PRODUCT = new Product($id);
             <div class="d-table-cell">
                 <div class="container">
                     <div class="page-title-content">
-                        <h2>Product</h2>
+                        <h2><?php echo $PRODUCT_CATEGORY->name; ?></h2>
                         <ul>
-                            <li><a href="index.php">Home</a></li>
+                            <li><a href="./">Home</a></li>
                             <li>
                                 <i class="flaticon-tea-cup"></i>
                             </li>
-                            <li>Product</li>
+                            <li><a href="all-products.php">All Products</a></li>
+                            <li>
+                                <i class="flaticon-tea-cup"></i>
+                            </li>
+                            <li>Product Category</li>
                         </ul>
                     </div>
                 </div>
