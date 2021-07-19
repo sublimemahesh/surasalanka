@@ -4,6 +4,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 $PRODUCT = new Product($_GET['id']);
+$PRODUCT_CATEGORY = new ProductCategories($PRODUCT->category);
 
 $CAT = new ProductCategories($PRODUCT->category);
 $discount = $PRODUCT->price * ($PRODUCT->discount / 100);
@@ -68,11 +69,15 @@ $price = $PRODUCT->price - $discount;
                     <div class="page-title-content">
                         <h2><?php echo $PRODUCT->name; ?> </h2>
                         <ul>
-                            <li><a href="index.php">Home</a></li>
+                            <li><a href="./">Home</a></li>
                             <li>
                                 <i class="flaticon-tea-cup"></i>
                             </li>
-                            <li><?php echo $PRODUCT->name; ?> </li>
+                            <li><a href="products.php?category=<?= $PRODUCT_CATEGORY->id; ?>"><?= $PRODUCT_CATEGORY->name; ?></a></li>
+                            <li>
+                                <i class="flaticon-tea-cup"></i>
+                            </li>
+                            <li>Product Details </li>
                         </ul>
                     </div>
                 </div>
@@ -88,18 +93,22 @@ $price = $PRODUCT->price - $discount;
         <div class="container">
 
             <div class="row align-items-center">
-                <?php
-                $PRODUCT_PHOTO = new ProductPhoto(null);
-                foreach ($PRODUCT_PHOTO->getProductPhotosById($PRODUCT->id) as $product_photo) {
-                ?>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="product-details-image">
-                            <img src="upload/product-categories/sub-category/product/photos/gallery/<?php echo $product_photo['image_name'] ?>" alt="image">
-                        </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="product-photo-slider owl-carousel owl-theme">
+                        <?php
+                        $PRODUCT_PHOTO = new ProductPhoto(null);
+                        foreach ($PRODUCT_PHOTO->getProductPhotosById($PRODUCT->id) as $product_photo) {
+                        ?>
+                            <div class="testimonial-item">
+                                <div class="product-details-image">
+                                    <img src="upload/product-categories/sub-category/product/photos/gallery/<?php echo $product_photo['image_name'] ?>" alt="image">
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
                     </div>
-                <?php
-                }
-                ?>
+                </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="product-details-desc">
                         <h3><?php echo $PRODUCT->name; ?></h3>
@@ -119,7 +128,7 @@ $price = $PRODUCT->price - $discount;
                             ?>
                         </div>
 
-                        <p><?php echo substr($PRODUCT->description, 0, 250) . '..'; ?></p>
+                        <p><?php echo $PRODUCT->short_description; ?></p>
                         <div class="product-add-to-cart">
                             <div class="input-counter">
                                 <input type="hidden" value="1" name="demo_vertical2" />

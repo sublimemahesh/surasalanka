@@ -65,13 +65,13 @@ if (!isset($_SESSION)) {
             <div class="d-table-cell">
                 <div class="container">
                     <div class="page-title-content">
-                        <h2>Product</h2>
+                        <h2>All Products</h2>
                         <ul>
-                            <li><a href="index.php">Home</a></li>
+                            <li><a href="./">Home</a></li>
                             <li>
                                 <i class="flaticon-tea-cup"></i>
                             </li>
-                            <li>Product</li>
+                            <li>Products</li>
                         </ul>
                     </div>
                 </div>

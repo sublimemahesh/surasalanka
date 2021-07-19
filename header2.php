@@ -27,7 +27,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="all-products.php" class="nav-link">
-                                Product
+                                Products
                                 <i class='bx bx-chevron-down'></i>
                             </a>
                             <ul class="dropdown-menu">
@@ -36,7 +36,7 @@
                                 foreach ($PRODUCT_CATEGORIES->all() as $product_categories) {
                                 ?>
                                     <li class="nav-item">
-                                        <a href="products.php?id=<?php echo $product_categories['id'] ?>" class="nav-link">
+                                        <a href="products.php?category=<?php echo $product_categories['id'] ?>" class="nav-link">
                                             <?php echo $product_categories['name']; ?>
                                         </a>
                                     </li>
@@ -47,8 +47,8 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="offer.php" class="nav-link">
-                                Offer
+                            <a href="offers.php" class="nav-link">
+                                Offers
                             </a>
                         </li>
                         <li class="nav-item">
@@ -87,7 +87,7 @@
                         <?php
                         } else {
                         ?>
-                            <div class="option-item">
+                            <div class="option-item user_name_section">
                                 <div class="cart-btn sign-in-btn">
                                     <a href="member/" class="nav-link" title="My Account">
                                         <h5>Hi, <?php

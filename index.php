@@ -106,7 +106,7 @@ if (!isset($_SESSION)) {
                         if ($key < 4) {
                             ?>
                             <div class="col-lg-3 col-md-6">
-                                <a href="products.php?id=<?php echo $product_categories['id'] ?>">
+                                <a href="products.php?category=<?php echo $product_categories['id'] ?>">
                                     <div class="food-item">
                                         <img src="upload/product-categories/icon/<?php echo $product_categories['icon']; ?>" width="170">
                                         <h3><?php echo $product_categories['name']; ?></h3>

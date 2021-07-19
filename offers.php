@@ -59,13 +59,13 @@ if (!isset($_SESSION)) {
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="page-title-content">
-                            <h2>Offer</h2>
+                            <h2>Offers</h2>
                             <ul>
                                 <li><a href="index.php">Home</a></li>
                                 <li>
                                     <i class="flaticon-tea-cup"></i>
                                 </li>
-                                <li>Offer</li>
+                                <li>Offers</li>
                             </ul>
                         </div>
                     </div>
@@ -84,7 +84,7 @@ if (!isset($_SESSION)) {
                 foreach ($OFFER->all() as $offer) {
                     ?>
                     <div class="event-style">
-                        <a href="products.php" >
+                        <a href="all-products.php" >
                             <div class="row align-items-center">
                                 <div class="col-lg-7">
 
