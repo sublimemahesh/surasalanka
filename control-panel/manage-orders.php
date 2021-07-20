@@ -63,6 +63,7 @@ if ($status == '0') {
                                             <th>Full Name</th>
                                             <th>Location</th>
                                             <th>Amount (Rs)</th>
+                                            <th>Payment Method</th>
                                             <th>Option</th>
                                         </tr>
                                     </thead>
@@ -74,6 +75,7 @@ if ($status == '0') {
                                             <th>Full Name</th>
                                             <th>Location</th>
                                             <th>Amount (Rs)</th>
+                                            <th>Payment Method</th>
                                             <th>Option</th>
                                         </tr>
                                     </tfoot>
@@ -96,6 +98,13 @@ if ($status == '0') {
                                                     <td><?php echo $DISTRICT->name . ' -> ' . $CITY->name; ?></td>
                                                     <td class="text-right"><?php echo number_format($order['amount'], 2); ?></td>
 
+                                                    <td><?php
+                                                        if ($order['payment_method'] == "online_payment") {
+                                                            echo "Online Payment";
+                                                        } elseif ($order['payment_method'] == "cash_on_delivery") {
+                                                            echo "Cash on Delivery";
+                                                        }
+                                                        ?></td>
                                                     <td>
                                                         <a href="view-order.php?id=<?php echo $order['id']; ?>" class=""><i class="glyphicon glyphicon-eye-open view-btn"></i></a>
                                                         <?php

@@ -19,6 +19,7 @@ class Order
     public $deliveryCharges;
     public $amount;
     public $orderNote;
+    public $paymentMethod;
     public $status;
     public $paymentStatusCode;
     public $statusCode;
@@ -48,6 +49,7 @@ class Order
             $this->deliveryCharges = $result['delivery_charges'];
             $this->amount = $result['amount'];
             $this->orderNote = $result['order_note'];
+            $this->paymentMethod = $result['payment_method'];
             $this->status = $result['status'];
             $this->paymentStatusCode = $result['payment_status_code'];
             $this->statusCode = $result['status_code'];
@@ -74,6 +76,7 @@ class Order
             . "`delivery_charges`,"
             . "`amount`,"
             . "`order_note`,"
+            . "`payment_method`,"
             . "`status`,"
             . "`payment_status_code`,"
             . "`delivery_status`,"
@@ -90,6 +93,7 @@ class Order
             . "'" . $this->deliveryCharges . "', "
             . "'" . $this->amount . "', "
             . "'" . mysql_real_escape_string($this->orderNote) . "', "
+            . "'" . mysql_real_escape_string($this->paymentMethod) . "', "
             . "'" . 0 . "', "
             . "'" . $this->paymentStatusCode . "', "
             . "'" . $this->deliveryStatus . "', "
@@ -402,85 +406,6 @@ class Order
         return $array_res;
     }
 
-    public function createOrder()
-    {
-
-        date_default_timezone_set('Asia/Colombo');
-        $orderedAt = date('Y-m-d H:i:s');
-
-        $query = "INSERT INTO `orders` ("
-            . "`ordered_at`,"
-            . "`member`,"
-            . "`address`,"
-            . "`city`,"
-            . "`contact_no_1`,"
-            . "`contact_no_2`,"
-            . "`district`,"
-            . "`amount`,"
-            . "`order_note`,"
-            . "`status`) VALUES  ("
-            . "'" . $orderedAt . "', "
-            . "'" . $this->member . "', "
-            . "'" . $this->address . "', "
-            . "'" . $this->city . "', "
-            . "'" . $this->contactNo1 . "', "
-            . "'" . $this->contactNo2 . "', "
-            . "'" . $this->district . "', "
-            . "'" . $this->amount . "', "
-            . "'" . $this->orderNote . "', "
-            . "'" . 1 . "')";
-
-        $db = new Database();
-        $result = $db->readQuery2($query);
-
-        if ($result) {
-            return $result;
-        } else {
-            return FALSE;
-        }
-    }
-
-    public function getOrdersByDeliveryStatusAndMember($member, $status)
-    {
-
-        $query = "SELECT * FROM `orders` WHERE `delivery_status`='" . $status . "' AND `status`='1' AND `member`='" . $member . "'";
-
-        $db = new Database();
-        $result = $db->readQuery1($query);
-        $array_res = array();
-
-        while ($row = mysqli_fetch_array($result)) {
-            array_push($array_res, $row);
-        }
-
-        return $array_res;
-    }
-
-    public function getCanceledOrdersByMember($member)
-    {
-
-        $query = "SELECT * FROM `orders` WHERE `status`='0' AND `member`='" . $member . "'";
-
-        $db = new Database();
-        $result = $db->readQuery1($query);
-        $array_res = array();
-
-        while ($row = mysqli_fetch_array($result)) {
-            array_push($array_res, $row);
-        }
-
-        return $array_res;
-    }
-
-    public function getDetailsByID($id)
-    {
-        $query = "SELECT * FROM `orders` WHERE `id` = $id";
-        $db = new Database();
-        $result = $db->readQuery1($query);
-        $result = mysqli_fetch_assoc($result);
-        return $result;
-    }
-
     function sendOrderMail($products)
     {
         $CUSTOMER = new Customer($this->member);
@@ -531,7 +456,7 @@ class Order
             //     $PARANT = new Product($PRODUCT->parent);
             //     $name = $PARANT->name . ' - ' . $product["product_name"];
             // } else {
-                $name =  $PRODUCT->name;
+            $name =  $PRODUCT->name;
             // }
 
             $tot += $product['amount'];
@@ -1366,5 +1291,216 @@ class Order
         // } else {
         //     return TRUE;
         // }
+    }
+
+    function sendPaymentFailureMail()
+    {
+        require_once "Mail.php";
+
+        $CUSTOMER = new Customer($this->member);
+        $DISTRICT = new District($CUSTOMER->district);
+        $CITY = new City($CUSTOMER->city);
+
+        date_default_timezone_set('Asia/Colombo');
+        $todayis = date("l, F j, Y, g:i a");
+
+        $comany_name = "Surasa Lanka (Pvt) Ltd";
+        $website_name = "www.surasalanka.com";
+        $comConNumber = "+94 773 051 737";
+        $comEmail = "info@surasalanka.com";
+        $comOwner = "Team Surasa Lanka";
+        $reply_email_name = 'SURASA LANKA (PVT) LTD';
+        $site_link = "https://" . $_SERVER['HTTP_HOST'];
+
+        //---------------------- SERVER WEBMAIL LOGIN ------------------------
+
+        $host = "sg1-ls7.a2hosting.com";
+        $username = "noreply@surasalanka.com";
+        $password = 'Umu93;x3njmd';
+
+        //------------------------ MAIL ESSENTIALS --------------------------------
+
+        $webmail = "noreply@surasalanka.com";
+        $visitorSubject = "Order Enquiry - #" . $this->id . " - Payment Not Successful";
+
+        $status = "";
+        if ($this->paymentStatusCode == 2 && $this->status == 1) {
+            $status = "Successful.";
+        } else {
+            $status = "Unsuccessful. Please resume your order.";
+        }
+
+        $html = '<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Synotec Email</title>
+    </head>
+    <body>
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#f6f8fb"> 
+            <tbody>
+                <tr> 
+                    <td style="padding-top:10px;padding-bottom:30px;padding-left:16px;padding-right:16px" align="center"> 
+                        <table style="width:602px" width="602" cellspacing="0" cellpadding="0" border="0" align="center"> 
+                            <tbody>
+                                <tr> 
+                                    <td bgcolor=""> 
+                                        <table width="642" cellspacing="0" cellpadding="0" border="0"> 
+                                            <tbody> 
+                                                <tr> 
+                                                    <td style="border:1px solid #dcdee3;padding:20px;background-color:#fff;width:600px" width="600px" bgcolor="#ffffff" align="center"> 
+                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0"> 
+                                                            <tbody>
+                                                                <tr><td>
+                                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td width="100%">
+                                                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 25px;">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td valign="middle" height="46" align="right">
+                                                                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                                                                            <tbody>
+                                                                                                                <tr>
+                                                                                                                    <td width="100%" align="center">
+                                                                                                                        <font style="font-family:Verdana,Geneva,sans-serif;color:#68696a;font-size:18px">
+                                                                                                                            <a href="' . $site_link . '" style="color:#68696a;text-decoration:none;" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.gallecabsandtours.com&amp;source=gmail&amp;ust=1574393192616000&amp;usg=AFQjCNGNM8_Z7ZMe7ndwFlJuHEP29nDd3Q">
+                                                                                                                                <h4>' . $website_name . '</h4>
+                                                                                                                            </a>
+                                                                                                                        </font>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody> 
+                                                        </table> 
+                                                        <table style="background-color:#f5f7fa" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#F5F7FA"> 
+                                                            <tbody> 
+                                                                <tr> 
+                                                                    <td style="font-size:14px;color:#333;line-height:18px;font-family:Arial,Helvetica,sans-serif;padding:15px 20px 10px;font-weight: 600;" align="left"> Hi , ' . $CUSTOMER->name . ' </td> 
+                                                                </tr> 
+                                                            </tbody> 
+                                                        </table> 
+                                                        <table style="background-color:#f5f7fa" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#F5F7FA"> 
+                                                            <tbody> 
+                                                                <tr> 
+                                                                    <td style="word-wrap:break-word;font-size:14px;color:#333;line-height:18px;font-family:Arial,Helvetica,sans-serif;padding:10px 20px" align="left"> 
+                                                                        <p style="word-wrap:break-word;font-size:14px;color:red;line-height:20px;font-family:Arial,Helvetica,sans-serif;padding:10px 20px">Your payment was not successful... </p>
+                                                                        <p>Please be kindly informed that we have not received your payment successfully, but in case if your merchant/bank has already deducted the amount from your bank account, please contact PayHere Private Limited via 011 3009975 or 077 2929333 and get it refunded within 24 hours of payment.</p>
+                                                                        <p>If your payment is not successful, click <a href="https://www.surasalanka.com/return.php?order=' . $this->id . '">here</a> for a re-payment. Thank you.</p>
+                                                                    </td> 
+                                                                </tr> 
+                                                            </tbody> 
+                                                        </table> 
+                                                    </td> 
+                                                </tr> 
+                                                <tr> 
+                                                    <td style="padding:4px 20px;width:600px;line-height:12px">&nbsp;</td> 
+                                                </tr> 
+                                                <tr> 
+                                                    <td style="padding:20px;border:1px solid #dcdee3;width:600px;background-color:#fff"> 
+                                                        
+                                                        <table style="background-color:#f5f7fa" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#F5F7FA"> 
+                                                            <tbody> 
+                                                                <tr> 
+                                                                    <td style="word-wrap:break-word;font-size:14px;color:#333;line-height:10px;font-family:Arial,Helvetica,sans-serif;padding:10px 20px 10px" align="left"> <p> Cheers, </p>
+                                                                        <p>' . $comOwner . '</p>
+                                                                    </td> 
+                                                                </tr>
+                                                                    
+                                                            </tbody> 
+                                                        </table> 
+                                                        <table style="background-color:#fff" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#fff"> 
+                                                            <tbody> 
+                                                                <tr> 
+                                                                    <td style="padding:4px 20px;width:600px;line-height:12px">&nbsp;</td> 
+                                                                </tr> 
+                                                            </tbody> 
+                                                            <tbody>
+                                                                <tr> 
+                                                                    <td style="padding:10px 0 7px;color:#9a9a9a;text-align:left;font-family:Arial,Helvetica,sans-serif;font-size:12px" align="left"> <p style="line-height:18px;margin:0;padding:0"> 
+                                                                        </p><p style="line-height:24px;margin:0;padding:0">' . $comany_name . '</p>
+                                                                        <p style="line-height:24px;margin:0;padding:0">Email : ' . $comEmail . ' </p> 
+                                                                        <p style="line-height:24px;margin:0;padding:0">Tel: ' . $comConNumber . '</p> </td> 
+                                                                </tr> 
+                                                            </tbody>
+                                                        </table> 
+                                                    </td> 
+                                                </tr> 
+                                            </tbody> 
+                                        </table>
+                                    </td> 
+                                </tr> 
+                                <tr> 
+                                    <td id="m_-1040695829873221998footer_content"> 
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#f6f8fb"> 
+                                            <tbody>
+                                                <tr> 
+                                                    <td> 
+                                                        <table style="padding:0" width="100%" cellspacing="0" cellpadding="0" border="0" align="center"> 
+                                                            <tbody> 
+                                                                <tr> 
+                                                                    <td style="padding:0px 0 7px;color:#9a9a9a;text-align:left;font-family:Arial,Helvetica,sans-serif;font-size:12px" align="left"> <p style="line-height:18px;margin:0;padding:0">Website By : <a href="https://synotec.lk/">Synotec Holdings (Pvt) Ltd.</a></p> </td> 
+                                                                </tr> 
+                                                                <tr></tr> 
+                                                            </tbody> 
+                                                        </table>
+                                                    </td> 
+                                                </tr> 
+                                            </tbody>
+                                        </table> 
+                                    </td> 
+                                </tr> 
+                            </tbody>
+                        </table>
+                    </td> 
+                </tr> 
+            </tbody>
+        </table>
+    </body>
+</html>';
+
+        $visitorHeaders = array(
+            'MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
+            'To' => $CUSTOMER->email,
+            'Reply-To' => $comEmail,
+            'Subject' => $visitorSubject
+        );
+
+        $companyHeaders = array(
+            'MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
+            'To' => $webmail,
+            'Reply-To' => $CUSTOMER->email,
+            'Subject' => $visitorSubject
+        );
+
+        $smtp = Mail::factory('smtp', array(
+            'host' => $host,
+            'auth' => true,
+            'username' => $username,
+            'password' => $password
+        ));
+
+        $visitorMail = $smtp->send($CUSTOMER->email, $visitorHeaders, $html);
+        $companyMail = $smtp->send($webmail, $companyHeaders, $html);
+        $arr = array();
+        if (PEAR::isError($visitorMail)) {
+
+            $arr['status'] = "Could not be sent your message";
+        } else {
+            $arr['status'] = "Your message has been sent successfully";
+        }
+
+        return $arr;
     }
 }

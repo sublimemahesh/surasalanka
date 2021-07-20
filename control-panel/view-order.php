@@ -176,6 +176,16 @@ $CITY = new City($ORDER->city);
                                     </tr>
 
                                     <tr>
+                                        <th>Payment Method</th>
+                                        <td><?php
+                                            if ($ORDER->paymentMethod == "online_payment") {
+                                                echo "Online Payment";
+                                            } elseif ($ORDER->paymentMethod == "cash_on_delivery") {
+                                                echo "Cash on Delivery";
+                                            }
+                                            ?></td>
+                                    </tr>
+                                    <tr>
                                         <th>Additional Note</th>
                                         <td><?php
                                             if (empty($ORDER->orderNote)) {

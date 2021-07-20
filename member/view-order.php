@@ -191,6 +191,17 @@ $OCITY = new City($ORDER->city);
                                                         <th>City</th>
                                                         <td><?php echo $OCITY->name; ?></td>
                                                     </tr>
+
+                                                    <tr>
+                                                        <th>Payment Method</th>
+                                                        <td><?php
+                                                            if ($ORDER->paymentMethod == "online_payment") {
+                                                                echo "Online Payment";
+                                                            } elseif ($ORDER->paymentMethod == "cash_on_delivery") {
+                                                                echo "Cash on Delivery";
+                                                            }
+                                                            ?></td>
+                                                    </tr>
                                                     <tr>
                                                         <th>Delivery Charges</th>
                                                         <td>Rs. <?php echo number_format($ORDER->deliveryCharges, 2); ?></td>
@@ -224,7 +235,7 @@ $OCITY = new City($ORDER->city);
                                                                         //     $PARANT = new Product($PRODUCT->parent);
                                                                         //     $name = $PARANT->name . ' - ' . $PRODUCT->name;
                                                                         // } else {
-                                                                            $name =  $PRODUCT->name;
+                                                                        $name =  $PRODUCT->name;
                                                                         // }
                                                                         $tot += $orders['amount'];
                                                                     ?>

@@ -18,6 +18,7 @@ if ($_POST['action'] == 'ADDORDER') {
     $ORDER->contactNo1 = $_POST['contactNo'];
     $ORDER->contactNo2 = $_POST['contactNo2'];
     $ORDER->orderNote = $_POST['orderNote'];
+    $ORDER->paymentMethod = $_POST['payment_method'];
     $ORDER->amount = $_POST['amount'];
     $ORDER->deliveryCharges = $_POST['delivery_charges'];
     $ORDER->status = 1;
