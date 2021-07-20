@@ -9,9 +9,10 @@ if ($_POST['action'] == 'GETPRODUCTBYCATEGORY') {
     $PRODUCT = new Product(NULL);
 
     $result = $PRODUCT->getProductsByCategory($_POST["proCategoryID"]);
-
-    echo json_encode($result);
+    
+    
     header('Content-type: application/json');
+    echo json_encode($result);
     exit();
 }
 

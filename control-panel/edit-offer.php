@@ -58,7 +58,7 @@ $OFFER = new Offer($id);
                             <div class="body">
                                 <form class="form-horizontal" method="post" action="post-and-get/offer.php" enctype="multipart/form-data"> 
 
-                                    <div class="col-md-12 hidden">
+                                    <div class="col-md-12">
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <select class="form-control" type="text" id="product_category" autocomplete="off" >
@@ -84,7 +84,7 @@ $OFFER = new Offer($id);
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12 hidden">
+                                    <div class="col-md-12">
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <select class="form-control" type="text" id="product" autocomplete="off" name="product">

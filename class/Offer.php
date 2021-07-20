@@ -93,6 +93,22 @@ class Offer {
 
         return $array_res;
     }
+    public function getOngoingOffers() {
+        date_default_timezone_set('Asia/Colombo');
+        $today = date('Y-m-d');
+        $query = "SELECT * FROM `offer` WHERE `date` > '" . $today . "' ORDER BY queue ASC";
+        $db = new Database();
+        $result = $db->readQuery($query);
+
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+
+            array_push($array_res, $row);
+        }
+
+        return $array_res;
+    }
 
     public function update() {
 
