@@ -19,6 +19,12 @@ $CUSTOMER = new Customer($_SESSION['id']);
 $CITY = new City($CUSTOMER->city);
 $DISTRICT = new District($CUSTOMER->district);
 $delivery_charge = DefaultData::getDeliveryCharges();
+
+if (isset($_GET["order_id"])) {
+    $ID = $_GET["order_id"];
+
+    $paymentSatusCode = Order::getPaymentStatusCode($ID);
+}
 ?>
 <!doctype html>
 <html lang="zxx">
@@ -97,8 +103,31 @@ $delivery_charge = DefaultData::getDeliveryCharges();
 
     <section class="checkout-area ptb-100">
         <div class="container">
+            <div class="alert" id="beautypress-form-msg">
+                <?php
+                if (isset($_GET["order_id"])) {
+                    if ($paymentSatusCode == 2) {
+                        unset($_SESSION["shopping_cart"]);
+                ?>
+                        <div class="alert alert-success alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Success!</strong> Your Payment has been succeeded.
+                        </div>
+                    <?php
+                    } else {
+                    ?>
+                        <div class="alert alert-danger alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Error!</strong> Your Payment was not successful. Please do your reservation again.
+                        </div>
+                <?php
+                    }
+                }
+                ?>
+            </div>
+            <!-- <form method="post" action="https://www.payhere.lk/pay/checkout" name="contact-from" id="payments" class="booking-form">  -->
+            <form method="post" action="https://sandbox.payhere.lk/pay/checkout" name="contact-from" id="payments" class="booking-form">
 
-            <form method="post" id="payments">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
                         <div class="billing-details">
@@ -203,12 +232,16 @@ $delivery_charge = DefaultData::getDeliveryCharges();
                                             foreach ($_SESSION["shopping_cart"] as $product) {
 
                                                 $PRODUCT = new Product($product['product_id']);
-
-
                                                 $name =  $product["product_name"];
 
                                                 $price = $product['product_quantity'] * $product['product_price'];
                                                 $tot += $price;
+                                                $items = '';
+                                                if (empty($items)) {
+                                                    $items .= $name;
+                                                } else {
+                                                    $items .= ', ' . $name;
+                                                }
                                         ?>
                                                 <tr>
                                                     <td class="product-name"> <?php echo $name; ?>&nbsp;<span class="product-quantity">× <?php echo $product['product_quantity']; ?></span></td>
@@ -242,6 +275,16 @@ $delivery_charge = DefaultData::getDeliveryCharges();
                             </div>
 
                             <div class="payment-box">
+                                <div class="payment-method">
+                                    <p>
+                                        <input type="radio" id="online-payment" name="payment_method" value="online_payment">
+                                        <label for="online-payment">Online Payment</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="cash-on-delivery" name="payment_method" value="cash_on_delivery">
+                                        <label for="cash-on-delivery">Cash on Delivery</label>
+                                    </p>
+                                </div>
                                 <div class="row">
                                     <div class="col-xs-12 agree-check-box">
                                         <label class="checkbox-container">Click here to indicate that you have read and agree to the <a href="terms-and-conditions.php" target="_blank" class="text-blue">terms and conditions</a>.
@@ -251,12 +294,30 @@ $delivery_charge = DefaultData::getDeliveryCharges();
                                     </div>
                                 </div>
                                 <input type="hidden" name="delivery_charges" id="delivery_charges" value="<?= $delivery_charge; ?>" />
-                                <input type="hidden" name="total_amount" id="total_amount" value="<?= $grand_total; ?>" />
-                                <input type="hidden" name="member" id="member" value="<?= $_SESSION['id']; ?>" />
                                 <a href="#" class="default-btn order-btn" id="place_order" <?php echo $disabled; ?> prod-total="<?php echo $tot; ?>">
                                     Place Order
                                     <span></span>
                                 </a>
+
+                                <!-- <input type="hidden" name="merchant_id" value="214743">  Live Merchant ID -->
+                                <input type="hidden" name="merchant_id" value="1213021"> <!-- Sandbox Merchant ID-->
+                                <input type="hidden" name="return_url" value="http://www.surasalanka.com/checkout.php">
+                                <input type="hidden" name="cancel_url" value="http://www.surasalanka.com/checkout?cancel">
+                                <input type="hidden" name="notify_url" value="http://www.surasalanka.com/payments/notify.php">
+
+                                <input type="hidden" name="order_id" id="current_order_id" value="">
+                                <input type="hidden" name="items" value="<?php echo $items ?>">
+                                <input type="hidden" name="currency" value="LKR">
+                                <input type="hidden" name="member" id="member" value="<?php echo $_SESSION['id']; ?>">
+                                <input name="amount" id="total_amount" type="hidden" value="<?php echo $grand_total; ?>" class="payment">
+
+                                <input type="hidden" name="first_name" value="<?php echo $CUSTOMER->name; ?>">
+                                <input type="hidden" name="last_name" value="<?php echo $CUSTOMER->name; ?>">
+                                <input type="hidden" name="email" value="<?php echo $CUSTOMER->email; ?>">
+
+                                <input type="hidden" id="txtDistrict" value="<?php echo $DISTRICT->name; ?>">
+                                <input type="hidden" id="txtCity" value="<?php echo $CITY->name; ?>">
+                                <input type="hidden" id="txtCountry" name="country" value="Sri Lanka">
                             </div>
                         </div>
                     </div>

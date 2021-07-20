@@ -48,6 +48,7 @@ include_once(dirname(__FILE__) . '/auth.php');
                                             <th>Full Name</th>
                                             <th>Location</th>
                                             <th>Amount (Rs)</th>
+                                            <th>Payment Method</th>
                                             <th>Option</th>
                                         </tr>
                                     </thead>
@@ -59,6 +60,7 @@ include_once(dirname(__FILE__) . '/auth.php');
                                             <th>Full Name</th>
                                             <th>Location</th>
                                             <th>Amount (Rs)</th>
+                                            <th>Payment Method</th>
                                             <th>Option</th>
                                         </tr>
                                     </tfoot>
@@ -80,6 +82,13 @@ include_once(dirname(__FILE__) . '/auth.php');
                                                     <td><?php echo $MEMBER->name; ?></td>
                                                     <td><?php echo $DISTRICT->name . ' -> ' . $CITY->name; ?></td>
                                                     <td class="text-right"><?php echo $order['amount']; ?></td>
+                                                    <td><?php
+                                                        if ($order['payment_method'] == "online_payment") {
+                                                            echo "Online Payment";
+                                                        } elseif ($order['payment_method'] == "cash_on_delivery") {
+                                                            echo "Cash on Delivery";
+                                                        }
+                                                        ?></td>
                                                     <td>
                                                         <a href="view-order.php?id=<?php echo $order['id']; ?>" class=""><i class="glyphicon glyphicon-eye-open view-btn"></i></a> |
                                                         <a href="#" class="delete-order" data-id="<?php echo $order['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>

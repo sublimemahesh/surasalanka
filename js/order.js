@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     $('#place_order').click(function (e) {
-        
+
         e.preventDefault();
         if ($('#txtContactNo').val().length === 0 || !$('#txtContactNo').val()) {
             swal({
@@ -39,6 +39,15 @@ $(document).ready(function () {
                 showConfirmButton: false
             });
             return false;
+        } else if (!$("input:radio[name='payment_method']").is(":checked")) {
+            swal({
+                title: "Error!",
+                text: "Please select the payment method!.",
+                type: 'error',
+                timer: 2000,
+                showConfirmButton: false
+            });
+            return false;
         } else if (!$('#agree').is(':checked')) {
             swal({
                 title: "Error!",
@@ -58,6 +67,7 @@ $(document).ready(function () {
             var orderNote = $('#txtOrderNote').val();
             var amount = $('#total_amount').val();
             var delivery_charges = $('#delivery_charges').val();
+            var payment_method = $("input[name='payment_method']:checked").val();
 
             $.ajax({
                 url: "post-and-get/ajax/order.php",
@@ -73,6 +83,7 @@ $(document).ready(function () {
                     orderNote: orderNote,
                     amount: amount,
                     delivery_charges: delivery_charges,
+                    payment_method: payment_method,
                     action: "ADDORDER"
                 },
                 success: function (data) {
@@ -85,16 +96,31 @@ $(document).ready(function () {
                             showConfirmButton: false
                         });
                     } else {
-                        swal({
-                            title: "Success.!",
-                            text: "Order has been saved successfully!...",
-                            type: 'success',
-                            timer: 2000,
-                            showConfirmButton: false
-                        });
-                        setTimeout(function () {
-                            location.reload();
-                        }, 2000);
+                        if (payment_method == "online_payment") {
+                            $('#current_order_id').val(data.order_id);
+                            setTimeout(function () {
+                                $('#payments').submit();
+                                swal({
+                                    title: "Success.!",
+                                    text: "Order has been saved successfully!...",
+                                    type: 'success',
+                                    timer: 2000,
+                                    showConfirmButton: false
+                                });
+                            }, 3000);
+                        } else if (payment_method == "cash_on_delivery") {
+                            swal({
+                                title: "Success.!",
+                                text: "Order has been saved successfully!...",
+                                type: 'success',
+                                timer: 2000,
+                                showConfirmButton: false
+                            });
+                            setTimeout(function () {
+                                location.reload();
+                            }, 2000);
+                        }
+
                     }
 
                 }
