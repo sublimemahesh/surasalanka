@@ -40,7 +40,7 @@ if (isset($_GET['checkout'])) {
     <link rel="stylesheet" href="assets/css/style.css">
 
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <title>Surasa Lanka (Pvt) Ltd. | Sign Up</title>
+    <title>Surasa Lanka (Pvt) Ltd. | Register</title>
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <link href="control-panel/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
 </head>
@@ -65,13 +65,13 @@ if (isset($_GET['checkout'])) {
             <div class="d-table-cell">
                 <div class="container">
                     <div class="page-title-content">
-                        <h2>Sign Up</h2>
+                        <h2>Register</h2>
                         <ul>
                             <li><a href="index.php">Home</a></li>
                             <li>
                                 <i class="flaticon-tea-cup"></i>
                             </li>
-                            <li>Sign Up</li>
+                            <li>Register</li>
                         </ul>
                     </div>
                 </div>
@@ -147,12 +147,12 @@ if (isset($_GET['checkout'])) {
                             <div class="send-btn">
                             <input type="hidden" name="back_url" id="back_url" value="<?php echo $checkout; ?>" >
                                 <button type="#" class="default-btn" name="register-submit" id="register-submit">
-                                    Sign Up Now
+                                    Register Now
                                     <span></span>
                                 </button>
                             </div>
                             <br>
-                            <span>Already a registered user? <a href="login.php">Signin!</a></span>
+                            <span>Already a registered user? <a href="login.php">Login Now!</a></span>
                         </div>
                     </div>
                 </form>

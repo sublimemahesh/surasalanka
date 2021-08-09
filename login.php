@@ -116,7 +116,7 @@ if (!isset($_SESSION)) {
                                 </button>
                             </div>
                             <br>
-                            <span>Don't have account? <a href="sign-up.php">Signup!</a></span>
+                            <span>Don't have account? <a href="register.php">Register Now!</a></span>
                         </div>
                     </div>
                 </form>

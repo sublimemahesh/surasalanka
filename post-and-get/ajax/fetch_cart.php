@@ -3,7 +3,7 @@
 include_once(dirname(__FILE__) . '/../../class/include.php');
 //featch_cart
 session_start();
-
+$delivery_charge = DefaultData::getDeliveryCharges();
 $product = 0;
 $quantity = 0;
 $total_item = 0;
@@ -97,11 +97,13 @@ if (!empty($_SESSION["shopping_cart"])) {
 //if ($items > 3) {
 //    $more_items .= $items - 3 . ' more items.';
 //}
+$final = $tot1 + $delivery_charge;
 $data = array(
     'cart_details' => $output,
     'cart_box' => $cart,
     'total_item' => $total_item,
-    'total_price' => number_format($tot1, 2)
+    'total_price' => number_format($tot1, 2),
+    'final' => number_format($final, 2)
     //    'more_items' => $more_items
 );
 // dd($data);

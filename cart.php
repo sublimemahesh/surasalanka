@@ -3,6 +3,7 @@ include './class/include.php';
 if (!isset($_SESSION)) {
     session_start();
 }
+$delivery_charge = DefaultData::getDeliveryCharges();
 ?>
 <!doctype html>
 <html lang="zxx">
@@ -109,11 +110,11 @@ if (!isset($_SESSION)) {
                                 <li>Subtotal
                                     <span class="cart_sub_total">Rs. 0.00</span>
                                 </li>
-                                <li>Shipping
-                                    <span>Rs. 0.00</span>
+                                <li>Delivery Charge
+                                    <span>Rs. <?= number_format($delivery_charge, 2); ?></span>
                                 </li>
                                 <li>Total
-                                    <span class="cart_sub_total"><b>Rs. 0.00</b></span>
+                                    <span class="cart_total"><b>Rs. 0.00</b></span>
                                 </li>
                             </ul>
                             <a href="checkout.php" class="default-btn">
