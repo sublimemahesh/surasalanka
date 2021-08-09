@@ -12,9 +12,9 @@ if (!Customer::authenticate()) {
     $_SESSION["back_url"] = 'checkout';
     redirect('login.php');
 }
-if (!isset($_SESSION["shopping_cart"]) || empty($_SESSION["shopping_cart"])) {
-    redirect('cart.php');
-}
+// if (!isset($_SESSION["shopping_cart"]) || empty($_SESSION["shopping_cart"])) {
+//     redirect('cart.php');
+// }
 $CUSTOMER = new Customer($_SESSION['id']);
 $CITY = new City($CUSTOMER->city);
 $DISTRICT = new District($CUSTOMER->district);
@@ -125,8 +125,8 @@ if (isset($_GET["order_id"])) {
                 }
                 ?>
             </div>
-            <!-- <form method="post" action="https://www.payhere.lk/pay/checkout" name="contact-from" id="payments" class="booking-form">  -->
-            <form method="post" action="https://sandbox.payhere.lk/pay/checkout" name="contact-from" id="payments" class="booking-form">
+            <form method="post" action="https://www.payhere.lk/pay/checkout" name="contact-from" id="payments" class="booking-form"> 
+            <!-- <form method="post" action="https://sandbox.payhere.lk/pay/checkout" name="contact-from" id="payments" class="booking-form"> -->
 
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
@@ -299,11 +299,13 @@ if (isset($_GET["order_id"])) {
                                     <span></span>
                                 </a>
 
-                                <!-- <input type="hidden" name="merchant_id" value="214743">  Live Merchant ID -->
-                                <input type="hidden" name="merchant_id" value="1213021"> <!-- Sandbox Merchant ID-->
-                                <input type="hidden" name="return_url" value="http://www.surasalanka.com/checkout.php">
-                                <input type="hidden" name="cancel_url" value="http://www.surasalanka.com/checkout?cancel">
-                                <input type="hidden" name="notify_url" value="http://www.surasalanka.com/payments/notify.php">
+                                <!-- Live Merchant ID -->
+                                <input type="hidden" name="merchant_id" value="218268">  
+                                <!-- Sandbox Merchant ID -->
+                                <!-- <input type="hidden" name="merchant_id" value="1217841">  -->
+                                <input type="hidden" name="return_url" value="https://www.surasalanka.com/checkout.php">
+                                <input type="hidden" name="cancel_url" value="https://www.surasalanka.com/checkout?cancel">
+                                <input type="hidden" name="notify_url" value="https://www.surasalanka.com/payments/notify.php">
 
                                 <input type="hidden" name="order_id" id="current_order_id" value="">
                                 <input type="hidden" name="items" value="<?php echo $items ?>">
