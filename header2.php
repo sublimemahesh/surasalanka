@@ -70,17 +70,17 @@
                         ?>
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
-                                    <a href="login.php" class="nav-link nav-link-2" title="Sign In">
-                                       <img src="assets/img/image-icon/signin-w.png" class="sign_in_btn_w" alt="Sign In" /> <span class="header-2-sign-btn">Sign In</span>
-                                        <img src="assets/img/image-icon/signin.png" class="sign_in_btn_b" alt="Sign In" />
+                                    <a href="login.php" class="nav-link nav-link-2" title="Login">
+                                        <img src="assets/img/image-icon/signin-w.png" class="sign_in_btn_w" alt="Login" /> <span class="header-2-sign-btn"> : Login</span>
+                                        <img src="assets/img/image-icon/signin.png" class="sign_in_btn_b" alt="Login" />
                                     </a>
                                 </div>
                             </div>
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
-                                    <a href="sign-up.php" class="nav-link nav-link-2" title="Sign Up">
-                                        <img src="assets/img/image-icon/signup-w.png" class="sign_up_btn_w" alt="Sign Up" /> <span class="header-2-sign-btn header-2-sign-up-btn">Sign Up</span>
-                                        <img src="assets/img/image-icon/signup.png" class="sign_up_btn_b" alt="Sign Up" />
+                                    <a href="register.php" class="nav-link nav-link-3" title="Register">
+                                        <img src="assets/img/image-icon/signup-w.png" class="sign_up_btn_w" alt="Register" /> <span class="header-2-sign-btn header-2-sign-up-btn"> : Register</span>
+                                        <img src="assets/img/image-icon/signup.png" class="sign_up_btn_b" alt="Register" />
                                     </a>
                                 </div>
                             </div>
@@ -90,10 +90,11 @@
                             <div class="option-item user_name_section">
                                 <div class="cart-btn sign-in-btn">
                                     <a href="member/" class="nav-link" title="My Account">
-                                        <h5>Hi, <?php
-                                                $arr = explode(' ', $_SESSION['name']);
+                                        <!-- <h5>Hi, <?php
+                                                        $arr = explode(' ', $_SESSION['name']);
 
-                                                echo $arr[0]; ?></h5>
+                                                        echo $arr[0]; ?></h5> -->
+                                        <h5>My Account</h5>
                                     </a>
                                 </div>
                             </div>
@@ -136,15 +137,15 @@
                         ?>
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
-                                    <a href="login.php" class="nav-link" title="Sign In">
-                                        <img src="assets/img/image-icon/signin.png" alt="Sign In" /> <span class="header-2-sign-btn">Sign In</span>
+                                    <a href="login.php" class="nav-link" title="Login">
+                                        <img src="assets/img/image-icon/signin.png" alt="Login" /> <span class="header-2-sign-btn">Login</span>
                                     </a>
                                 </div>
                             </div>
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
-                                    <a href="sign-up.php" class="nav-link" title="Sign Up">
-                                        <img src="assets/img/image-icon/signup.png" alt="Sign Up" /> <span class="header-2-sign-btn">Sign Up</span>
+                                    <a href="register.php" class="nav-link" title="Register">
+                                        <img src="assets/img/image-icon/signup.png" alt="Register" /> <span class="header-2-sign-btn">Register</span>
                                     </a>
                                 </div>
                             </div>
@@ -153,11 +154,8 @@
                         ?>
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
-                                    <a href="member/" class="nav-link" title="Sign In">
-                                        <h5>Hi, <?php
-                                                $arr = explode(' ', $_SESSION['name']);
-
-                                                echo $arr[0]; ?></h5>
+                                    <a href="member/" class="nav-link" title="My Account">
+                                        <h5>My Account</h5>
                                     </a>
                                 </div>
                             </div>

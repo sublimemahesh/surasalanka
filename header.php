@@ -72,14 +72,14 @@
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
                                     <a href="login.php" class="nav-link">
-                                        <img src="assets/img/image-icon/signin.png" alt="Sign In" /> Sign In
+                                        <img src="assets/img/image-icon/signin.png" alt="Login" /> : Login
                                     </a>
                                 </div>
                             </div>
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
-                                    <a href="sign-up.php" class="nav-link">
-                                        <img src="assets/img/image-icon/signup.png" alt="Sign Up" /> Sign Up
+                                    <a href="register.php" class="nav-link">
+                                        <img src="assets/img/image-icon/signup.png" alt="Register" /> : Register
                                     </a>
                                 </div>
                             </div>
@@ -89,10 +89,11 @@
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
                                     <a href="member/" class="nav-link" title="My Account">
-                                        <h5 class="text-black">Hi, <?php
+                                        <!-- <h5 class="text-black">Hi, <?php
                                                                     $arr = explode(' ', $_SESSION['name']);
 
-                                                                    echo $arr[0]; ?></h5>
+                                                                    echo $arr[0]; ?></h5> -->
+                                                                    <h5>My Account</h5>
                                     </a>
                                 </div>
                             </div>
@@ -136,14 +137,14 @@
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
                                     <a href="login.php" class="nav-link">
-                                        <img src="assets/img/image-icon/signin.png" alt="Sign In" />
+                                        <img src="assets/img/image-icon/signin.png" alt="Login" />
                                     </a>
                                 </div>
                             </div>
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
-                                    <a href="sign-up.php" class="nav-link">
-                                        <img src="assets/img/image-icon/signup.png" alt="Sign Up" />
+                                    <a href="register.php" class="nav-link">
+                                        <img src="assets/img/image-icon/signup.png" alt="Register" />
                                     </a>
                                 </div>
                             </div>
@@ -152,11 +153,8 @@
                         ?>
                             <div class="option-item">
                                 <div class="cart-btn sign-in-btn">
-                                    <a href="member/" class="nav-link" title="Sign In">
-                                        <h5 class="text-black">Hi, <?php
-                                                                    $arr = explode(' ', $_SESSION['name']);
-
-                                                                    echo $arr[0]; ?></h5>
+                                    <a href="member/" class="nav-link" title="My Account">
+                                        <h5>My Account</h5>
                                     </a>
                                 </div>
                             </div>

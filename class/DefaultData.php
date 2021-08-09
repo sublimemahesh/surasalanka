@@ -21,6 +21,6 @@ class DefaultData
 
     public function getDeliveryCharges()
     {
-        return 200;
+        return 250;
     }
 }
