@@ -73,6 +73,21 @@ $CITY = new City($ORDER->city);
                                         <td><?php echo '#' . $ORDER->id; ?></td>
                                     </tr>
                                     <?php
+                                    if ($ORDER->paymentStatusCode == 2) {
+                                    ?>
+                                        <tr>
+                                            <th>Payment Status</th>
+                                            <td>Success</td>
+                                        </tr>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <tr>
+                                            <th>Payment Status</th>
+                                            <td>Failed</td>
+                                        </tr>
+                                    <?php
+                                    }
                                     if ($ORDER->status == 0) {
                                     ?>
                                         <tr>

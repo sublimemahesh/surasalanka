@@ -15,8 +15,8 @@ class DefaultData
 {
 
     const Host = 'sg1-ls7.a2hosting.com';
-    const Username = 'noreply@surasalanka.com';
-    const Password = 'Umu93;x3njmd';
+    const Username = 'mail@surasalanka.com';
+    const Password = '@@;3Q{JT?cdo';
     const Port = 465;
 
     public function getDeliveryCharges()

@@ -250,6 +250,7 @@ class Order
             . "`status_code` ='" . $this->statusCode . "', "
             . "`status` ='" . $this->status . "' "
             . " WHERE `id` = '" . $this->id . "'  ";
+        // dd($query);
         $db = new Database();
         $result = $db->readQuery($query);
 
@@ -470,7 +471,22 @@ class Order
         }
 
         $grand_total = $tot + $delivery_charge;
-        $status = "Pending";
+        if ($this->paymentStatusCode == 2) {
+            $paymentstatus = "Success";
+        } else {
+            $paymentstatus = "Failed";
+        }
+        if ($this->status == 0) {
+            $status = "Pending";
+        } elseif ($this->status == 1) {
+            $status = "Confirmed";
+        }
+        if ($this->paymentMethod == 'cash_on_delivery') {
+            $method = "Cash on Delivery";
+        } elseif ($this->paymentMethod == 'online_payment') {
+            $method = "Online Payment";
+        }
+
         $visitor_message = '<html xmlns="http://www.w3.org/1999/xhtml">
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -600,7 +616,17 @@ class Order
                                                                             </li>
                                                                             <li>
                                                                                 <font style="font-family: Verdana, Geneva, sans-serif; color:#68696a; font-size:14px; " >
-                                                                                    Status : Pending
+                                                                                    Payment Method : ' . $method . '
+                                                                                </font>
+                                                                            </li>
+                                                                            <li>
+                                                                                <font style="font-family: Verdana, Geneva, sans-serif; color:#68696a; font-size:14px; " >
+                                                                                    Payment Status : ' . $paymentstatus . '
+                                                                                </font>
+                                                                            </li>
+                                                                            <li>
+                                                                                <font style="font-family: Verdana, Geneva, sans-serif; color:#68696a; font-size:14px; " >
+                                                                                    Status : ' . $status . '
                                                                                 </font>
                                                                             </li>
                                                                                 
@@ -825,10 +851,20 @@ class Order
                                                                             </font>
                                                                         </li>
                                                                         <li>
-                                                                            <font style="font-family: Verdana, Geneva, sans-serif; color:#68696a; font-size:14px; " >
-                                                                                Status : ' . $status . '
-                                                                            </font>
-                                                                        </li>
+                                                                                <font style="font-family: Verdana, Geneva, sans-serif; color:#68696a; font-size:14px; " >
+                                                                                    Payment Method : ' . $method . '
+                                                                                </font>
+                                                                            </li>
+                                                                        <li>
+                                                                                <font style="font-family: Verdana, Geneva, sans-serif; color:#68696a; font-size:14px; " >
+                                                                                    Payment Status : ' . $paymentstatus . '
+                                                                                </font>
+                                                                            </li>
+                                                                            <li>
+                                                                                <font style="font-family: Verdana, Geneva, sans-serif; color:#68696a; font-size:14px; " >
+                                                                                    Status : ' . $status . '
+                                                                                </font>
+                                                                            </li>
                                                                         <table width="100%" border="1" style="margin-top: 10px" cellspacing="0" cellpadding="0">
                                                                                 <thead>
                                                                                     <tr>
